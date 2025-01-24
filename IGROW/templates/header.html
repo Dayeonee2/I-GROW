@@ -10,19 +10,23 @@
   }
     #header {
       height: 107px;
-      width: 100%;
-      position: fixed; top: 0px;
+      max-width: 100%;
+      position: relative; 
+      top: 0px;
       display: flex;
       margin-left: auto;
       padding-left: 60px;
-      padding-right: 60px;
+      padding-right: 200px;
       align-items: center;
       z-index: 1;
+      justify-content: space-between;
     }
     .opt {
+        display: relative;
+        margin-right: 20px;
+        padding: 10px;
         color: black;
-        font-size: 17px;
-        margin: 0 35px;
+        font-size: 18px;
         transition: 0.2s;
         cursor: pointer;
         font-family: 'GmarketSansMedium', sans-serif;
@@ -30,6 +34,41 @@
     .opt:hover {
       color: rgb(82, 108, 226);
       transition: 0.2s;
+    }
+    .navbar{
+      display: block;
+      box-sizing: border-box;
+    }
+    .ulclass{
+      width: auto;
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+    }
+    .opt2 {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff; /* 배경색 */
+      padding: 10px; /* 패딩 */
+      margin: 0; /* 마진 */
+      list-style: none; /* 리스트 스타일 제거 */
+      cursor: pointer; /* 마우스 포인터 변경 */
+      white-space: nowrap;
+      z-index: 100;
+    }
+    .opt2 li{
+      padding: 5px;
+      cursor: pointer;
+    }
+    .opt2 li:hover {
+      background-color: #f0f0f0; /* hover 시 배경색 */
+    }
+    #header:hover .opt2 {
+      display: block;
     }
     #dropdownbtn {
       width: 50px;
@@ -44,10 +83,7 @@
       margin-right: auto;
       cursor: pointer;
     }
-  .menu{
-    display: flex;
-    margin-left:430px;
-  }
+
   #dropdownbtn {
     width: 50px;
     height: 50px;
@@ -64,7 +100,7 @@
   .dropdownitem {
     font-size: 15px;
     font-weight: bold;
-    background-color: lightgray;
+    background-color: white;
     color: black;
     border: solid 1px gray;
     width: 150px;
@@ -103,32 +139,61 @@
       opacity: 1 !important;
     }
   }
+  
 </style>
 
 
 
-<div id="header" style>
+<header>
     <div role="button" href="" style="margin-right: 50px;" onclick="location.href='/'">
         <img src="{%static 'image/아이그로우로고.png'%}" style="width:auto; height:80px;">
     </div>
-    <div class = 'menu'>
-    </div>
-    <div class="opt" role="button" onclick="location.href='/aboutus/'">회사소개</div>
-    <div class="opt" role="button" onclick="location.href='/core/'">핵심사업</div>
-    <div class="opt" role="button" onclick="window.open('https://www.howsolkorea.com/main/index.jsp', '_blank')">교육센터</div>
-    <div class="opt" role="button" onclick="location.href='/recuit/'">인재채용</div>
-    <div class="opt" role="button" onclick="location.href='/contact/'">Contact</div>
-    
+    <nav class="navbar">
+      <ul class="ulclass">
+        <li class="opt" role="button" onclick="location.href='/aboutus/'">회사소개
+          <ul class="opt2">
+            <li role="button" onclick="location.href='/aboutus/'">인사말</li>
+            <li role="button" onclick="location.href='/aboutus/'">사업실적</li>
+            <li role="button" onclick="location.href='/aboutus/'">조직구성</li>
+            <li role="button" onclick="location.href='/aboutus/'">인증 및 보유시설</li>
+            <li role="button" onclick="location.href='/aboutus/'">오시는길</li>
+          </ul>
+        </li>    
+        <li class="opt" role="button" onclick="location.href='/core/'">핵심사업
+          <ul class="opt2">
+            <li role="button" onclick="location.href='/core/'">대학 중장기</li>
+            <li role="button" onclick="location.href='/core/'">교육과정</li>
+            <li role="button" onclick="location.href='/core/'">조직개편</li>
+            <li role="button" onclick="location.href='/core/'">만족도조사</li>
+          </ul>
+        </li>
+        <li class="opt" role="button" onclick="window.open('https://www.howsolkorea.com/main/index.jsp', '_blank')">교육센터</li>
+          <ul class="opt2">
+          </ul>
+        <li class="opt" role="button" onclick="location.href='/recuit/'">인재채용
+          <ul class="opt2">
+            <li role="button" onclick="location.href='/recuit/'">인재상</li>
+            <li role="button" onclick="location.href='/recuit/'">복리후생</li>
+            <li role="button" onclick="location.href='/recuit/'">급여체계</li>
+          </ul>
+        </li>
+        <li class="opt" role="button" onclick="location.href='/contact/'">Contact
+          <ul class="opt2">
+            <li role="button" onclick="location.href='/contact/'">사업문의</li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
     <div id="dropdownbtn">▽
         <div id="dropdownmenu">
-          <div class="dropdownitem" onclick="location.href='/aboutus/'">회사소개</div>
-          <div class="dropdownitem" onclick="location.href='/core/'">핵심사업</div>
-          <div class="dropdownitem" onclick="window.open('https://www.howsolkorea.com/main/index.jsp', '_blank')">교육센터</div>
-          <div class="dropdownitem" onclick="location.href='/recuit/'">인재채용</div>
-          <div class="dropdownitem" onclick="location.href='/contact/'">Contact</div>
+          <ul class="dropdownitem" onclick="location.href='/aboutus/'">회사소개</ul>
+          <ul class="dropdownitem" onclick="location.href='/core/'">핵심사업</ul>
+          <ul class="dropdownitem" onclick="window.open('https://www.howsolkorea.com/main/index.jsp', '_blank')">교육센터</ul>
+          <ul class="dropdownitem" onclick="location.href='/recuit/'">인재채용</ul>
+          <ul class="dropdownitem" onclick="location.href='/contact/'">Contact</ul>
         </div>
     </div>
-</div>
+</header>
 
 <script>
   const dropdownbtn = document.getElementById("dropdownbtn");
