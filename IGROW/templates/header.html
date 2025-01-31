@@ -2,160 +2,243 @@
 
 {% block header %}
 <style>
-    @font-face {
-      font-family: 'GmarketSansMedium';
-      src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
+  @font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+  ul{
+    margin: 0;
+    padding: 0;
   }
-    ul{
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      height: 100px;
-      max-width: 100%;
-      position: relative; 
-      font-family: 'GmarketSansMedium', sans-serif;
-      top: 0px;
-      margin-left: auto;
-      align-items: center;
-      z-index: 1;
-      display: flex;
-    }
-    .menu-1 {
-      display: flex;
-      width:100%;
-      height: inherit;
-      padding: 0 40px;
-    }
-    nav{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: auto;
-    }
-    nav > ul {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .opt {
-      display: flex;
-      flex-direction: column;
-      color: black;
-      font-size: 16px;
-      transition: 0.2s;
-      cursor: pointer;
-    }
-    .opt:hover > a{
-      color: rgb(82, 108, 226);
-      transition: 0.2s;
-    }
-    .opt > a {
-      padding: 0 50px;
-      height: 100px;
-      justify-content: center;
-      display: flex;
-      align-items: center;
-      font-size: 16px;
-      color: black;
-      text-decoration: none;
-    }
-    .opt > ul {
-      display: block;
-      position: absolute;
-      top: 100px;
-      list-style: none;
-      padding: 10px 20px; /* 내부 여백 조정 */
-      max-height: 0; /* 초기 높이를 0으로 설정 */
-      overflow: hidden;
-      transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
-      opacity: 0;
-    }
-    header:hover > ul {
-      max-height: 300px; /* 충분한 높이 설정 */
+  header {
+    height: 100px;
+    max-width: 100%;
+    position: relative; 
+    font-family: 'GmarketSansMedium', sans-serif;
+    top: 0px;
+    margin-left: auto;
+    align-items: center;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  .menu-1 {
+    display: flex;
+    width: 100%;
+    height: inherit;
+    align-items: center;
+    padding: 0 20px;
+  }
+  nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+  nav > ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .opt {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    font-size: 16px;
+    transition: 0.2s;
+    cursor: pointer;
+  }
+  .opt:hover > a{
+    color: rgb(82, 108, 226);
+    transition: 0.2s;
+  }
+  .opt > a {
+    padding: 0 50px;
+    height: 100px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+  }
+  .opt > ul {
+    display: block;
+    position: absolute;
+    top: 100px;
+    list-style: none;
+    padding: 10px 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 0;
+  }
+  header:hover > .menu-1{
+    background-color: rgba(0, 0, 0, 0.03);
+    transition: 0.5s;
+    height: 530px;
+  }
+  header:hover .opt > ul{
+    display: block;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .opt2{
+    display: flex;
+    padding:10px 10px;
+    align-items:center;
+    text-align: center;
+    white-space: nowrap;
+    margin-left: 20px;
+  }
+  .opt2 > a{
+    font-size: 14px;
+    color: black;
+    text-decoration: none;
+    position: relative;
+  }
+  .opt2:hover > a{
+    color: rgb(226, 159, 82);
+    transition: 0.2s;
+  }
+  .opt2 > a::after {
+    content: ""; 
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 3px;
+    background-color: rgb(226, 159, 82);
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .opt2:hover > a::after {
+    transform: scaleX(1);
+  }
+
+  /* 토글 버튼 */
+  .toggle-btn {
+    display: none;
+    font-size: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+/* PC에서 메뉴 hover 시 서브메뉴 표시 */
+  @media screen and (min-width: 769px) {
+    .opt:hover > ul {
+      max-height: 500px;
       opacity: 1;
     }
-    header:hover .opt > ul{
-      display: block;
+  }
+  @media screen and (max-width: 768px) {
+    .menu-1 {
+      flex-direction: column;
+      align-items: flex-start;
     }
-    header:hover > .menu-1{
-      background-color: rgba(0, 0, 0, 0.03);
-      transition: 0.5s;
-      height: 530px;
-    }
-    /* 선의 색상 및 스타일 */
-    header::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
+    nav {
+      display: none; /* 기본적으로 감추기 */
+      flex-direction: column;
       width: 100%;
-      height: 1px; /* 선의 높이 설정 */
-      background-color: rgba(0, 0, 0, 0.1); /* 연한 회색 */
+      background: white;
+      position: absolute;
+      top: 100px;
+      left: 0;
+      z-index: 10;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
-    .opt2{
-      display: flex;
-      padding:10px 10px;
-      align-items:center;
+    nav.active {
+      display: flex; /* 토글 시 나타나게 */
+    }
+    nav > ul {
+      flex-direction: column;
+      width: 100%;
+    }
+    .opt {
+      position: relative; /* 부모 요소를 기준으로 서브메뉴 정렬 */
+      width: 100%;
+    }
+    .opt > a {
+      padding: 15px 20px;
+      height: auto;
       text-align: center;
-      white-space: nowrap;
-      margin-left: 20px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
-    .opt2 > a{
-      font-size: 14px;
+    .opt > ul {
+      position: static;  /* 부모 밑에 배치 */
+      width: 100%;
+      max-height: 0;
+      opacity: 0;
+      padding: 0;
+      overflow: hidden;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 서브메뉴 구분선 효과 */
+      transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    }
+    .opt.open > ul {
+      max-height: 500px;  /* 충분한 높이 제공 */
+      opacity: 1;
+    }
+    .opt2 {
+      display: block;
+      margin-left: 0;
+      text-align: center;
+      padding: 0px;
+    }
+      /* 🔹 모바일에서 서브메뉴 텍스트 스타일 */
+    .opt2 > a {
+      display: block;
+      font-size: 16px;
       color: black;
-      text-decoration: none;
-      position: relative; /* 가상 요소 배치를 위해 설정 */
+      padding: 12px 20px;
+      text-decoration: none; /* 밑줄 제거 */
+      text-align: center;
+      transition: background-color 0.3s ease-in-out; /* 부드러운 효과 */
     }
-    .opt2:hover > a{
-      color: rgb(226, 159, 82);
-      transition: 0.2s;
+
+    .opt2 > a:hover {
+      background-color: rgba(0, 0, 0, 0.03); /* 연한 회색 배경 */
+      color: rgba(0, 0, 0, 0.6);
+      transition: background-color 0.3s ease-in-out; 
     }
     .opt2 > a::after {
-      content: ""; 
+      display: none; /* 밑줄 숨김 */
+    }
+    header:hover > .menu-1 {
+      height: auto; /* hover 효과 제거 */
+      background-color: transparent;
+    }
+    header:hover .opt > ul{
+      display: flex;
+      flex-direction: column;
+    }
+    .toggle-btn {
+      display: block;
       position: absolute;
-      left: 0;
-      bottom: -3px; /* 밑줄 위치 조정 */
-      width: 100%;
-      height: 3px; /* 밑줄 두께 조정 */
-      background-color: rgb(226, 159, 82); /* 밑줄 색상 */
-      transform: scaleX(0); /* 초기 상태: 보이지 않음 */
-      transition: transform 0.2s ease-in-out;
+      right: 20px;
     }
-    
-    .opt2:hover > a::after {
-      transform: scaleX(1); /* 마우스를 올리면 밑줄 표시 */
-    }
-    .opt.no-hover > a {
-      color: black; /* hover 스타일 제거 */
-    }
-    header:hover >
-    #dropdownbtn {
-      width: 50px;
-      height: 50px;
-      right: 100px;
-      background-color: gray;
-      font-size: 25px;
-      font-weight: bolder;
-      border-radius: 10px;
-      color: white;
-      display: none;
-      margin-right: auto;
-      cursor: pointer;
-    }
+  }
 </style>
-
 <header>
   <div class="menu-1">
     <div role="button" href="" style="margin-right: 65px; display: flex; align-items: center;" onclick="location.href='/'">
-        <img src="{%static 'image/아이그로우로고.png'%}" style="width:auto; height:80px; cursor: pointer;">
+        <img src="{%static 'image/아이그로우로고.png'%} " alt="아이그로우 로고" style="width:auto; height:80px; cursor: pointer;">
     </div>
-    <nav>
+    <button class="toggle-btn" onclick="toggleMenu()">☰</button>
+    <nav role="navigation">
       <ul>
-        <li class="opt"><a href="/aboutus/">회사소개</a>
+        <li class="opt"><a href="/aboutus/" aria-expanded="false" onclick="toggleSubmenu(event, this)">회사소개</a>
           <ul>
             <li class="opt2"><a href="/aboutus/">인사말</a></li>
             <li class="opt2"><a href="/aboutus/">사업실적</a></li>
@@ -164,7 +247,7 @@
             <li class="opt2"><a href="/aboutus/">오시는길</a></li>
           </ul>
         </li>    
-        <li class="opt"><a href="/core/">핵심사업</a>
+        <li class="opt"><a href="/core/" aria-expanded="false" onclick="toggleSubmenu(event, this)">핵심사업</a>
           <ul>
             <li class="opt2"><a href="/core/">대학 중장기</a></li>
             <li class="opt2"><a href="/core/">교육과정</a></li>
@@ -172,17 +255,15 @@
             <li class="opt2"><a href="/core/">만족도조사</a></li>
           </ul>
         </li>
-        <li class="opt"><a href="/core/">교육센터</a></li>
-          <ul>
-          </ul>
-        <li class="opt"><a href="/core/">인재채용</a>
+        <li class="opt"><a href="/core/" aria-expanded="false" onclick="toggleSubmenu(event, this)">교육센터</a></li>
+        <li class="opt"><a href="/core/" aria-expanded="false" onclick="toggleSubmenu(event, this)">인재채용</a>
           <ul>
             <li class="opt2"><a href="/core/">인재상</a></li>
             <li class="opt2"><a href="/core/">복리후생</a></li>
             <li class="opt2"><a href="/core/">급여체계</a></li>
           </ul>
         </li>
-        <li class="opt"><a href="/core/">Contact</a>
+        <li class="opt"><a href="/core/" aria-expanded="false" onclick="toggleSubmenu(event, this)">Contact</a>
           <ul class="rightside">
             <li class="opt2"><a href="/core/">사업문의</a></li>
           </ul>
@@ -193,35 +274,84 @@
 </header>
 
 <script>
+// 모바일 메뉴 토글 함수
+function toggleMenu() {
+  const nav = document.querySelector("nav");
+  nav.classList.toggle("active");
+}
 
+// 서브메뉴 토글 (모바일 전용)
+function toggleSubmenu(event, element) {
+  event.preventDefault();
+  event.stopPropagation();
 
-  const header = document.querySelector('header');
-  const submenus = document.querySelectorAll('.opt > ul');
-  
-  header.addEventListener('mouseenter', () => {
-      submenus.forEach((submenu, index) => {
-          setTimeout(() => {
-              submenu.style.maxHeight = submenu.scrollHeight + "px";
-              submenu.style.opacity = "1";
-          }); // 각 서브메뉴가 0.2초 간격으로 내려옴
+  let parentLi = element.parentElement;
+  let submenu = parentLi.querySelector("ul");
+  let isOpen = parentLi.classList.contains("open");
+
+  // 🔹 768px 이하(모바일)에서만 실행
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll(".opt").forEach((opt) => {
+      opt.classList.remove("open");
+      opt.querySelector("a").setAttribute("aria-expanded", "false");
+    });
+
+    if (!isOpen) {
+      parentLi.classList.add("open");
+      element.setAttribute("aria-expanded", "true");
+
+      // 서브메뉴 열기
+      submenu.style.maxHeight = submenu.scrollHeight + "px";
+      submenu.style.opacity = "1";
+    } else {
+      submenu.style.maxHeight = "0";
+      submenu.style.opacity = "0";
+    }
+  }
+}
+
+// 🔹 PC에서만 hover 효과 적용 (스크립트가 모바일에 영향을 주지 않도록 개선)
+function enableHoverOnPC() {
+  if (window.innerWidth > 768) {
+    document.querySelectorAll(".opt > ul").forEach((submenu) => {
+      submenu.style.maxHeight = "0";
+      submenu.style.opacity = "0";
+      submenu.style.transition = "max-height 0.5s ease-out, opacity 0.5s ease-out";
+    });
+
+    const header = document.querySelector("header");
+    header.addEventListener("mouseenter", () => {
+      document.querySelectorAll(".opt > ul").forEach((submenu) => {
+        submenu.style.maxHeight = submenu.scrollHeight + "px";
+        submenu.style.opacity = "1";
       });
-  });
-  
-  header.addEventListener('mouseleave', () => {
-      submenus.forEach((submenu) => {
-          submenu.style.maxHeight = "0px";
-          submenu.style.opacity = "0";
-          submenu.style.transition = "none"; // 사라질 때는 트랜지션 효과 제거
+    });
+
+    header.addEventListener("mouseleave", () => {
+      document.querySelectorAll(".opt > ul").forEach((submenu) => {
+        submenu.style.maxHeight = "0";
+        submenu.style.opacity = "0";
       });
-  
-      // 트랜지션 효과 다시 활성화 (다음번 슬라이딩을 위해)
-      setTimeout(() => {
-          submenus.forEach((submenu) => {
-              submenu.style.transition = "max-height 0.5s ease-out, opacity 1s ease-out";
-          });
-      }, 10);
-  });
-  
+    });
+  }
+}
+
+// 🔹 페이지 로드 시 및 화면 크기 변경 시 PC/모바일 환경 감지
+function checkScreenSize() {
+  if (window.innerWidth > 768) {
+    enableHoverOnPC(); // PC 전용 hover 기능 활성화
+  } else {
+    document.querySelectorAll(".opt > ul").forEach((submenu) => {
+      submenu.style.maxHeight = "0"; // 모바일에서는 기본적으로 숨김
+      submenu.style.opacity = "0";
+    });
+  }
+}
+
+// 🔹 초기 실행 및 창 크기 변경 시 적용
+window.addEventListener("load", checkScreenSize);
+window.addEventListener("resize", checkScreenSize);
 </script>
+
 
 {% endblock %}
