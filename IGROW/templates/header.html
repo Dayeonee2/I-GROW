@@ -64,18 +64,26 @@
       text-decoration: none;
     }
     .opt > ul {
-      display: none;
+      display: block;
       position: absolute;
       top: 100px;
       list-style: none;
       padding: 10px 20px; /* 내부 여백 조정 */
+      max-height: 0; /* 초기 높이를 0으로 설정 */
+      overflow: hidden;
+      transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+      opacity: 0;
+    }
+    header:hover > ul {
+      max-height: 300px; /* 충분한 높이 설정 */
+      opacity: 1;
     }
     header:hover .opt > ul{
       display: block;
     }
     header:hover > .menu-1{
       background-color: rgba(0, 0, 0, 0.03);
-      transition: 1s;
+      transition: 0.5s;
       height: 530px;
     }
     /* 선의 색상 및 스타일 */
@@ -100,10 +108,26 @@
       font-size: 14px;
       color: black;
       text-decoration: none;
+      position: relative; /* 가상 요소 배치를 위해 설정 */
     }
     .opt2:hover > a{
       color: rgb(226, 159, 82);
       transition: 0.2s;
+    }
+    .opt2 > a::after {
+      content: ""; 
+      position: absolute;
+      left: 0;
+      bottom: -3px; /* 밑줄 위치 조정 */
+      width: 100%;
+      height: 3px; /* 밑줄 두께 조정 */
+      background-color: rgb(226, 159, 82); /* 밑줄 색상 */
+      transform: scaleX(0); /* 초기 상태: 보이지 않음 */
+      transition: transform 0.2s ease-in-out;
+    }
+    
+    .opt2:hover > a::after {
+      transform: scaleX(1); /* 마우스를 올리면 밑줄 표시 */
     }
     .opt.no-hover > a {
       color: black; /* hover 스타일 제거 */
@@ -247,21 +271,33 @@
     }
   })
 
-  document.querySelectorAll('.opt2').forEach((opt2) => {
-    opt2.addEventListener('mouseenter', () => {
-      const parentOpt = opt2.closest('.opt');
-      if (parentOpt) {
-        parentOpt.classList.add('no-hover');
-      }
-    });
+  const header = document.querySelector('header');
+  const submenus = document.querySelectorAll('.opt > ul');
   
-    opt2.addEventListener('mouseleave', () => {
-      const parentOpt = opt2.closest('.opt');
-      if (parentOpt) {
-        parentOpt.classList.remove('no-hover');
-      }
-    });
+  header.addEventListener('mouseenter', () => {
+      submenus.forEach((submenu, index) => {
+          setTimeout(() => {
+              submenu.style.maxHeight = submenu.scrollHeight + "px";
+              submenu.style.opacity = "1";
+          }); // 각 서브메뉴가 0.2초 간격으로 내려옴
+      });
   });
+  
+  header.addEventListener('mouseleave', () => {
+      submenus.forEach((submenu) => {
+          submenu.style.maxHeight = "0px";
+          submenu.style.opacity = "0";
+          submenu.style.transition = "none"; // 사라질 때는 트랜지션 효과 제거
+      });
+  
+      // 트랜지션 효과 다시 활성화 (다음번 슬라이딩을 위해)
+      setTimeout(() => {
+          submenus.forEach((submenu) => {
+              submenu.style.transition = "max-height 0.5s ease-out, opacity 1s ease-out";
+          });
+      }, 10);
+  });
+  
 </script>
 
 {% endblock %}
