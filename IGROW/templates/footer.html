@@ -1,0 +1,28 @@
+<!-- 푸터 탬플릿 -->
+
+{% load static %}
+
+{% block footer %}
+<!-- 푸터 CSS -->
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+<footer>
+    <div class="footer">
+        <div class="sub1">
+            <img src="{%static 'image/아이그로우로고심볼.png'%}" style = "width:180px; height:auto; padding: 10px;">
+        </div>
+        <div class="pclass">
+            <p>상호: (주)아이그로우 | 대표자: 신동필</p>
+            <p>주소: 서울 서초구 남부순환로350길 8 (용연빌딩 3층)</p>
+            <p style = "margin-bottom: 35px;">대표번호: 02-475-5002 팩스: 02-475-5002</p>
+            <p style = "font-size: x-small;">Copyrightⓒ 2025 by I-GROW, Inc. ALL RIGHTS RESERVED.
+                No part of this publication may be reproduced, stored in retrieval system, or transmitted in any form or by any means ㅡ
+                electronic, mechanical, photocopying, recording, or otherwise ㅡ without the permission of I-GROW.
+                This publication is protected by copyright law and international treaties.</p>
+            <p><br></p>
+        </div>
+    </div>
+</footer>
+
+
+{% endblock %}
