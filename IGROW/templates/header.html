@@ -62,8 +62,8 @@ function toggleSubmenu(event, element) {
   let submenu = parentLi.querySelector("ul");
   let isOpen = parentLi.classList.contains("open");
 
-  // 🔹 768px 이하(모바일)에서만 실행
-  if (window.innerWidth <= 1000) {
+  // 🔹 1024px 이하(모바일)에서만 실행
+  if (window.innerWidth <= 1024) {
     document.querySelectorAll(".opt").forEach((opt) => {
       opt.classList.remove("open");
       opt.querySelector("a").setAttribute("aria-expanded", "false");
@@ -85,7 +85,7 @@ function toggleSubmenu(event, element) {
 
 // 🔹 PC에서만 hover 효과 적용 (모바일에서는 실행되지 않도록 조정)
 function enableHoverOnPC() {
-  if (window.innerWidth > 1000) {
+  if (window.innerWidth > 1024) {
     document.querySelectorAll(".opt > ul").forEach((submenu) => {
       submenu.style.maxHeight = "0";
       submenu.style.opacity = "0";
@@ -94,7 +94,7 @@ function enableHoverOnPC() {
 
     const header = document.querySelector("header");
     header.addEventListener("mouseenter", () => {
-      if (window.innerWidth > 1000) { // 🔹 PC 환경에서만 실행
+      if (window.innerWidth > 1024) { // 🔹 PC 환경에서만 실행
         document.querySelectorAll(".opt > ul").forEach((submenu) => {
           submenu.style.maxHeight = submenu.scrollHeight + "px";
           submenu.style.opacity = "1";
@@ -103,7 +103,7 @@ function enableHoverOnPC() {
     });
 
     header.addEventListener("mouseleave", () => {
-      if (window.innerWidth > 1000) { // 🔹 PC 환경에서만 실행
+      if (window.innerWidth > 1024) { // 🔹 PC 환경에서만 실행
         document.querySelectorAll(".opt > ul").forEach((submenu) => {
           submenu.style.maxHeight = "0";
           submenu.style.opacity = "0";
@@ -115,7 +115,7 @@ function enableHoverOnPC() {
 
 // 🔹 모바일에서는 hover가 아닌 클릭으로만 메뉴가 열리도록 처리
 function checkScreenSize() {
-  if (window.innerWidth > 1000) {
+  if (window.innerWidth > 1024) {
     enableHoverOnPC(); // PC 전용 hover 기능 활성화
   } else {
     // 🔹 모바일에서는 메뉴를 hover로 열지 않도록 설정
