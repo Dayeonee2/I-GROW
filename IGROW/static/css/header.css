@@ -76,7 +76,7 @@
     opacity: 0;
   }
   header:hover > .menu-1{
-    background-color: rgba(0, 0, 0, 0.03);
+    background-color: white;
     transition: 0.5s;
     height: 530px;
   }

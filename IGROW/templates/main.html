@@ -12,41 +12,71 @@
         font-weight: normal;
         font-style: normal;
     }
-    .container{
-        height: 100vh;
-        position: relative;
+    @font-face {
+        font-family: 'GmarketSansMedium';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
     }
-    /* 전체 화면 배경 동영상 */
+    
+    /* 전체 컨테이너 */
+    .container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative; /* 상대 위치 지정 */
+        width: 100%;
+        height: 750px;
+    }
+    
+    /* 비디오 배경 */
     .video-background {
-        position: fixed;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        max-width: 1000px;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1; /* 텍스트보다 뒤로 배치 */
+        margin-top: 100px; /* 상단 여백 추가 */
+    }
+    
+    /* 컨텐츠 스타일 */
+    .content {
+        position: relative;
+        color: black;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        font-family: 'GmarketSansMedium', sans-serif;
+        max-width: 80%;
+        padding: 10px;
+        top:-260px;
+    }
+        /* 비디오 오버레이 */
+    .container::after {
+        content: "";
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        object-fit: cover;  /* 화면에 꽉 차도록 조절 */
-        z-index: -1; /* 컨텐츠보다 뒤에 위치 */
-        margin-top:10%;
-    }
-    /* 페이지 내용 */
-    .content {
-        position: relative;
-        z-index: 1; /* 비디오보다 앞에 위치 */
-        color: black; /* 텍스트 색상 */
-        text-align: left;
-        font-size: 24px;
-        font-weight: bold;
-        margin-top: 20%;
-        font-family: 'GmarketSansMedium', sans-serif;
+        background: rgba(0, 0, 0, 0.01); /* 투명도 조절 가능 */
+        z-index: -1;
     }
 </style>
 {% endblock %}
 
 {% block content %}
-<video class="video-background" autoplay muted loop playsinline>
-    <source src="{% static 'image/mainmovie.mp4' %}" type="video/mp4">
-    브라우저가 지원하지 않는 경우, 동영상을 볼 수 없습니다.
-</video>
 <div class="container">
+    <video class="video-background" autoplay muted loop playsinline>
+        <source src="{% static 'image/mainmovie.mp4' %}" type="video/mp4">
+        브라우저가 지원하지 않는 경우, 동영상을 볼 수 없습니다.
+    </video>
     <div class="content">
         <h1>I GROW, therefore I AM.</h1>
     </div>
