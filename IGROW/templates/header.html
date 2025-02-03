@@ -28,7 +28,7 @@
             <li class="opt2"><a href="{% url 'core:survey' %}">만족도조사</a></li>
           </ul>
         </li>
-        <li class="opt"><a href="https://www.howsolkorea.com/main/index.jsp" aria-expanded="false" onclick="toggleSubmenu(event, this)">교육센터</a></li>
+        <li class="opt"><a href="https://www.howsolkorea.com/main/index.jsp" aria-expanded="false" target="_blank">교육센터</a></li>
         <li class="opt"><a href="{% url 'recuit:idealcandidate' %}" aria-expanded="false" onclick="toggleSubmenu(event, this)">인재채용</a>
           <ul>
             <li class="opt2"><a href="{% url 'recuit:idealcandidate' %}">인재상</a></li>
@@ -63,7 +63,7 @@ function toggleSubmenu(event, element) {
   let isOpen = parentLi.classList.contains("open");
 
   // 🔹 768px 이하(모바일)에서만 실행
-  if (window.innerWidth <= 768) {
+  if (window.innerWidth <= 1000) {
     document.querySelectorAll(".opt").forEach((opt) => {
       opt.classList.remove("open");
       opt.querySelector("a").setAttribute("aria-expanded", "false");
@@ -83,9 +83,9 @@ function toggleSubmenu(event, element) {
   }
 }
 
-// 🔹 PC에서만 hover 효과 적용 (스크립트가 모바일에 영향을 주지 않도록 개선)
+// 🔹 PC에서만 hover 효과 적용 (모바일에서는 실행되지 않도록 조정)
 function enableHoverOnPC() {
-  if (window.innerWidth > 768) {
+  if (window.innerWidth > 1000) {
     document.querySelectorAll(".opt > ul").forEach((submenu) => {
       submenu.style.maxHeight = "0";
       submenu.style.opacity = "0";
@@ -94,43 +94,45 @@ function enableHoverOnPC() {
 
     const header = document.querySelector("header");
     header.addEventListener("mouseenter", () => {
-      document.querySelectorAll(".opt > ul").forEach((submenu) => {
-        submenu.style.maxHeight = submenu.scrollHeight + "px";
-        submenu.style.opacity = "1";
-      });
+      if (window.innerWidth > 1000) { // 🔹 PC 환경에서만 실행
+        document.querySelectorAll(".opt > ul").forEach((submenu) => {
+          submenu.style.maxHeight = submenu.scrollHeight + "px";
+          submenu.style.opacity = "1";
+        });
+      }
     });
 
     header.addEventListener("mouseleave", () => {
-      document.querySelectorAll(".opt > ul").forEach((submenu) => {
-        submenu.style.maxHeight = "0";
-        submenu.style.opacity = "0";
-      });
+      if (window.innerWidth > 1000) { // 🔹 PC 환경에서만 실행
+        document.querySelectorAll(".opt > ul").forEach((submenu) => {
+          submenu.style.maxHeight = "0";
+          submenu.style.opacity = "0";
+        });
+      }
     });
   }
 }
 
-// 🔹 페이지 로드 시 및 화면 크기 변경 시 PC/모바일 환경 감지
+// 🔹 모바일에서는 hover가 아닌 클릭으로만 메뉴가 열리도록 처리
 function checkScreenSize() {
-  if (window.innerWidth > 768) {
+  if (window.innerWidth > 1000) {
     enableHoverOnPC(); // PC 전용 hover 기능 활성화
   } else {
+    // 🔹 모바일에서는 메뉴를 hover로 열지 않도록 설정
     document.querySelectorAll(".opt > ul").forEach((submenu) => {
-      submenu.style.maxHeight = "0"; // 모바일에서는 기본적으로 숨김
+      submenu.style.maxHeight = "0"; 
       submenu.style.opacity = "0";
     });
+
+    // 기존 hover 이벤트 제거 (PC 환경에서만 동작하도록 하기 위해)
+    document.querySelector("header").removeEventListener("mouseenter", enableHoverOnPC);
+    document.querySelector("header").removeEventListener("mouseleave", enableHoverOnPC);
   }
 }
 
 // 🔹 초기 실행 및 창 크기 변경 시 적용
 window.addEventListener("load", checkScreenSize);
 window.addEventListener("resize", checkScreenSize);
-
-function toggleSubmenu(event, element) {
-  event.preventDefault();  // 기본 링크 이동을 막음
-
-  // 새 창에서 링크 열기
-  window.open(element.href, '_blank', 'noopener,noreferrer');
-}
 </script>
 
 

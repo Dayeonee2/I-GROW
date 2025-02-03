@@ -27,6 +27,7 @@
     height: inherit;
     align-items: center;
     padding: 0 20px;
+    justify-content: center;
   }
   nav{
     display: flex;
@@ -133,13 +134,13 @@
     cursor: pointer;
   }
 /* PC에서 메뉴 hover 시 서브메뉴 표시 */
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 1001px) {
     .opt:hover > ul {
       max-height: 500px;
       opacity: 1;
     }
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1000px) {
     .menu-1 {
       flex-direction: column;
       align-items: flex-start;
