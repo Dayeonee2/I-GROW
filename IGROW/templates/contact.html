@@ -5,9 +5,405 @@
 {% load static %}
 
 {% block style %}
+<style>
+    .container {
+        width: 100%
+    }
+
+    @media (min-width: 640px) {
+        .container {
+            max-width:640px
+        }
+    }
+
+    @media (min-width: 768px) {
+        .container {
+            max-width:768px
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .container {
+            max-width:1024px
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .container {
+            max-width:1280px
+        }
+    }
+
+    @media (min-width: 1536px) {
+        .container {
+            max-width:1536px
+        }
+    }
+
+    .mx-auto {
+        margin-left: auto;
+        margin-right: auto
+    }
+
+    .col-span-6 {
+        grid-column: span 6/span 6
+    }
+
+    #root {
+        box-sizing: border-box;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        margin: 0;
+        padding: 0;
+        display: block;
+        word-wrap: break-word;
+    }
+
+    #container {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    #Contact, #Email {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    h1, .text-4xl {
+        font-size: 2.25rem;
+        font-weight: 800;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-gray-500 {
+        color: rgba(107, 114, 128, 1);
+    }
+
+    .text-gray-700 {
+        color: rgba(55, 65, 81, 1);
+    }
+
+    .bg-white {
+        background-color: #fff;
+    }
+
+    .shadow-md {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .border {
+        border-width: 1px;
+    }
+
+    .border-gray-100 {
+        border-color: rgba(243, 244, 246, 1);
+    }
+
+    .rounded-lg {
+        border-radius: 0.5rem;
+    }
+
+    .p-5 {
+        padding: 1.25rem;
+    }
+
+    .w-full {
+        width: 100%;
+    }
+
+    .mx-10, .mx-5, .mx-32, .mx-48 {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .grid {
+        display: grid;
+    }
+
+    .grid-cols-1 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .sm\:grid-cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gap-5 {
+        gap: 1.25rem;
+    }
+
+    .font-bold {
+        font-weight: 700;
+    }
+
+    .text-lg {
+        font-size: 1.125rem;
+    }
+
+    .text-xl {
+        font-size: 1.25rem;
+    }
+
+    .text-sm {
+        font-size: 0.875rem;
+    }
+
+    .text-blue-500 {
+        color: #3B82F6;
+    }
+
+    .mt-2 {
+        margin-top: 0.5rem;
+    }
+
+    .mt-5 {
+        margin-top: 1.25rem;
+    }
+
+    .mb-10 {
+        margin-bottom: 2.5rem;
+    }
+
+    .opacity-25 {
+        opacity: 0.25;
+    }
+
+    .bg-blue-500 {
+        background-color: #3B82F6;
+    }
+
+    .h-1 {
+        height: 0.25rem;
+    }
+
+    .rounded-t {
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+    }
+
+    .mr-2 {
+        margin-right: 0.5rem;
+    }
+
+    .focus\:border-blue-400:focus {
+        border-color: #60A5FA;
+    }
+
+    .focus\:ring-blue-400:focus {
+        box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.5);
+    }
+
+    .block {
+        display: block;
+    }
+
+    .h-10 {
+        height: 2.5rem;
+    }
+
+    .sm\:text-sm {
+        font-size: 0.875rem;
+    }
+
+    .text-red-500 {
+        color: #EF4444;
+    }
+
+    .bg-gray-50 {
+        background-color: #F9FAFB;
+    }
+
+    .px-4, .py-5 {
+        padding: 1rem;
+    }
+
+    .sm\:px-6 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .focus\:outline-none:focus {
+        outline: none;
+    }
+
+    .transition-all {
+        transition: all 0.3s ease;
+    }
+
+    .rounded-md {
+        border-radius: 0.375rem;
+    }
+
+    .inline-flex {
+        display: inline-flex;
+    }
+
+    .justify-center {
+        justify-content: center;
+    }
+
+    .items-center {
+        align-items: center;
+    }
+
+    .hover\:bg-blue-600:hover {
+        background-color: #2563EB;
+    }
+
+    .focus\:ring-indigo-500:focus {
+        box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+    }
+
+    .focus\:ring-offset-2:focus {
+        box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+    }
+
+    .font-medium {
+        font-weight: 500;
+    }
+
+</style>
+
 {% endblock %}
 
 {% block content %}
+<div id="root">
+    <div class="container mx-auto">
+        <div class="py-20" id="Contact">
+            <div class="w-full text-center">
+                <div>
+                    <div class="overflow-hidden inline-block">
+                        <span class="inline-block text-4xl font-extrabold " style="transform: none;">
+                            <span class="">Contact</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="font-regular keep-all mt-2 px-2 text-gray-500" style="opacity: 1; transform: translateY(0px) translateZ(0px);">편하게 방문해주세요.</div>
+            </div>
+            <div class="w-full my-4">
+                <div class="h-1 mx-auto bg-blue-500 w-64 opacity-25 my-0 py-0 rounded-t mb-10"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mx-10 md:mx-5 lg:mx-10 xl:mx-32 2xl:mx-48">
+                <div class="text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="font-bold text-2xl">Visit Us</div>
+                    <div class="text-gray-500 keep-all text-sm">I-GROW 방문을 환영합니다.</div>
+                    <div class="mt-5 text-xl text-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" aria-hidden="true" class="inline mr-2 align-middle h-5 w-5 mx-auto text-blue-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <span class="align-middle text-lg">서울 서초구 남부순환로350길 8 용연빌딩 3층</span>
+                    </div>
+                </div>
+                <div class="text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="font-bold text-2xl">Call Us</div>
+                    <div class="text-gray-500 keep-all text-sm">궁금한 점이 있으시면 언제든지 연락주세요.</div>
+                    <div class="mt-5 text-xl text-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" aria-hidden="true" class="inline mr-2 align-middle h-5 w-5 mx-auto text-blue-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                        <span class="align-middle text-lg">0507-1322-5008</span>
+                    </div>
+                </div>
+                <div class="text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="font-bold text-2xl">Contact Us</div>
+                    <div class="text-gray-500 keep-all text-sm">메일 문의도 언제든 가능합니다.</div>
+                    <div class="mt-5 text-xl text-gray-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" aria-hidden="true" class="inline mr-2 align-middle h-5 w-5 mx-auto text-blue-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        <span class="align-middle text-lg">이메일@email.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+
+        <div class="py-20" id="Email">
+            <div class="w-full text-center">
+                <div>
+                    <div class="overflow-hidden inline-block">
+                        <span class="inline-block text-4xl font-extrabold " style="transform: none;">
+                            <span class="">Email</span>
+                            <span>&nbsp;</span>
+                        </span>
+                    </div>
+                    <div class="overflow-hidden inline-block">
+                        <span class="inline-block text-4xl font-extrabold " style="transform: none;">
+                            <span class="">Us</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="font-regular keep-all mt-2 px-2 text-gray-500" style="opacity: 1; transform: translateY(0px) translateZ(0px);">궁금하신 점은 이메일로 편하게 문의해주세요.</div>
+            </div>
+            <div class="w-full my-4">
+                <div class="h-1 mx-auto bg-blue-500 w-64 opacity-25 my-0 py-0 rounded-t mb-10"></div>
+            </div>
+            <form>
+                <div class="mx-auto w-full px-5 sm:w-3/4 sm:px-0">
+                    <div class="overflow-hidden rounded-lg border border-gray-100 shadow-md">
+                        <div class="bg-white px-4 py-5 sm:p-6">
+                            <div class="grid grid-cols-6 gap-6">
+                                <div class="col-span-6 sm:col-span-3">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 align-middle">
+                                            <span>회사명</span>
+                                        </label>
+                                        <input type="text" autocomplete="fwaefwaef3rf2" name="company" class="mt-1 p-3 focus:border-blue-400 focus:border-2 focus:ring-blue-400 focus:outline-none block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md transition-colors h-10" placeholder="회사명">
+                                        <div class="ml-2 mt-1 text-sm text-red-500"></div>
+                                    </div>
+                                </div>
+                                <div class="col-span-6 sm:col-span-3">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 align-middle">
+                                            <span class="text-sm text-red-500">*</span>
+                                            <span>성함</span>
+                                        </label>
+                                        <input type="text" autocomplete="fwaefwaef3rf2" name="name" class="mt-1 p-3 focus:border-blue-400 focus:border-2 focus:ring-blue-400 focus:outline-none block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md transition-colors h-10" placeholder="성함">
+                                        <div class="ml-2 mt-1 text-sm text-red-500"></div>
+                                    </div>
+                                </div>
+                                <div class="col-span-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 align-middle">
+                                            <span class="text-sm text-red-500">*</span>
+                                            <span>이메일 주소</span>
+                                        </label>
+                                        <input type="text" autocomplete="fwaefwaef3rf2" name="email" class="mt-1 p-3 focus:border-blue-400 focus:border-2 focus:ring-blue-400 focus:outline-none block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md transition-colors h-10" placeholder="email@example.com">
+                                        <div class="ml-2 mt-1 text-sm text-red-500"></div>
+                                    </div>
+                                </div>
+                                <div class="col-span-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 align-middle">
+                                            <span>연락처</span>
+                                        </label>
+                                        <input type="text" autocomplete="fwaefwaef3rf2" name="phone" class="mt-1 p-3 focus:border-blue-400 focus:border-2 focus:ring-blue-400 focus:outline-none block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md transition-colors h-10" placeholder="01012345678">
+                                        <div class="ml-2 mt-1 text-sm text-red-500"></div>
+                                    </div>
+                                </div>
+                                <div class="col-span-6">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 align-middle">
+                                            <span class="text-sm text-red-500">*</span>
+                                            <span>문의사항</span>
+                                        </label>
+                                        <textarea name="body" class="mt-1 p-3 focus:border-blue-400 focus:border-2 focus:ring-blue-400 focus:outline-none block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md transition-colors" rows="8" autocomplete="23rfaw43t3erfa" placeholder="내용을 입력해주세요..."></textarea>
+                                        <div class="ml-2 mt-1 text-sm text-red-500"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 px-4 py-3 text-right sm:px-6">
+                            <button class="inline-flex justify-center rounded-md border border-transparent bg-blue-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">보내기</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
