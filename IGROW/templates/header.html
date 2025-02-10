@@ -5,7 +5,7 @@
 
 <header>
   <div class="menu-1">
-    <div role="button" href="" style="margin-right: 65px; display: flex; align-items: center;" onclick="location.href='/'">
+    <div role="button" style="margin-right: 65px; display: flex; align-items: center;" onclick="location.href='/'">
         <img src="{%static 'image/아이그로우로고.png'%} " alt="아이그로우 로고" style="width:auto; height:80px; cursor: pointer;">
     </div>
     <button class="toggle-btn" onclick="toggleMenu()" style="top:27px;">☰</button>
@@ -55,33 +55,37 @@ function toggleMenu() {
 
 // 서브메뉴 토글 (모바일 전용)
 function toggleSubmenu(event, element) {
-  event.preventDefault();
-  event.stopPropagation();
-
   let parentLi = element.parentElement;
   let submenu = parentLi.querySelector("ul");
   let isOpen = parentLi.classList.contains("open");
 
   // 🔹 1024px 이하(모바일)에서만 실행
   if (window.innerWidth <= 1024) {
+    // 서브메뉴가 있는 경우만 기본 이벤트 차단
+    if (submenu) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
     document.querySelectorAll(".opt").forEach((opt) => {
       opt.classList.remove("open");
       opt.querySelector("a").setAttribute("aria-expanded", "false");
     });
 
-    if (!isOpen) {
+    if (!isOpen && submenu) {
       parentLi.classList.add("open");
       element.setAttribute("aria-expanded", "true");
 
       // 서브메뉴 열기
       submenu.style.maxHeight = submenu.scrollHeight + "px";
       submenu.style.opacity = "1";
-    } else {
+    } else if (submenu) {
       submenu.style.maxHeight = "0";
       submenu.style.opacity = "0";
     }
   }
 }
+
 
 // 🔹 PC에서만 hover 효과 적용 (모바일에서는 실행되지 않도록 조정)
 function enableHoverOnPC() {
