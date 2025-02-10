@@ -112,6 +112,14 @@ USE_I18N = True
 
 USE_TZ = True
 
+# 이메일 설정(mg)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.naver.com'  # 네이버 메일 서버
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'ekdus2561@naver.com'  # 네이버 이메일 주소
+EMAIL_HOST_PASSWORD = 'HFJBJVQUDSUB'  # 앱 비밀번호 사용
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
