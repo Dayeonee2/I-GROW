@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from . import views
+from .views import send_contact_email
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +25,6 @@ urlpatterns = [
     path("aboutus/", include('aboutus.urls')),
     path("core/", include('core.urls')),
     path("recuit/", include('recuit.urls')),
-    path('contact/', views.contact)
+    path('contact/', views.contact),
+    path("api/send-email/", send_contact_email, name="send_contact_email"),
 ]
