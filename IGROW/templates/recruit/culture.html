@@ -10,6 +10,7 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="py-20" id="c">
     <div class="w-full text-center">
         <div>
@@ -30,4 +31,29 @@
     </div>
 </div>
 
+<!-- <div style="width: 100% auto; height: 10px;"></div> -->
+
+<div class="py-20" id="c">
+    <div class="w-full text-center">
+        <div>
+            <div class="overflow-hidden inline-block">
+                <span class="inline-block text-4xl font-extrabold " style="transform: none;">
+                    <span class="">복리후생</span>
+                </span>
+            </div>
+            <div class="font-regular keep-all mt-2 px-2 text-gray-500" style="opacity: 1; transform: translateY(0px) translateZ(0px);">쉽고빠르게잘!</div>
+            </div>
+            <div class="w-full my-4">
+                <div class="h-1 mx-auto bg-blue-500 w-64 opacity-25 my-0 py-0 rounded-t mb-10"></div>
+            </div>
+            <div>
+                <img src="{% static 'image/급여체계.png' %}" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block endscript %}
+<script src="{% static 'js/contact.js' %}"></script>
 {% endblock %}

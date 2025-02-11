@@ -1011,8 +1011,24 @@ img,video {
     padding-top: .5rem
 }
 
+.pb-0 {
+    padding-bottom: 0
+}
+
+.pb-2 {
+    padding-bottom: .5rem
+}
+
 .pb-3 {
     padding-bottom: .75rem
+}
+
+.pb-4 {
+    padding-bottom: 1rem
+}
+
+.pb-10 {
+    padding-bottom: 2.5rem
 }
 
 .pt-5 {
@@ -1020,34 +1036,27 @@ img,video {
 }
 
 .pt-3 {
-    padding-top: .75rem
-}
-
-.pb-2 {
-    padding-bottom: .5rem
-}
-
-.pb-4 {
-    padding-bottom: 1rem
+    padding-top: .75rem;
 }
 
 .pt-10 {
-    padding-top: 2.5rem
+    padding-top: 2.5rem;
 }
 
-.pb-0 {
-    padding-bottom: 0
+.break-all {
+    word-break: break-all;
 }
 
+/* 
 .email-text {
-    display: block; /* inline 요소가 아닌 블록 요소로 변경하여 공간 확보 */
-    word-break: break-word; /* 긴 단어(이메일 주소)도 줄 바꿈 허용 */
-    white-space: normal; /* 줄 바꿈 허용 */
-    overflow-wrap: break-word; /* 너무 길면 자동으로 다음 줄로 이동 */
-    max-width: 100%; /* div 크기를 넘어가지 않도록 제한 */
-    text-align: center; /* 이메일이 div 안에서 가운데 정렬되도록 설정 */
+    display: block;
+    word-break: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    text-align: center;
 }
-
+  */
 .text-left {
     text-align: left
 }
