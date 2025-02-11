@@ -5,21 +5,19 @@
 {% load static %}
 
 {% block style %}
+<meta name="description" content="아이그로우는 국내 최고 수준의 컨설턴트가 제공하는 책임 있는 컨설팅 서비스를 제공합니다. 프로젝트 실적과 고객 맞춤형 협력을 경험해 보세요.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <style>
     @font-face {
-        font-family: 'GmarketSansMedium';
-        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-    @font-face {
         font-family: 'SUIT-Regular';
         src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
         font-weight: normal;
         font-style: normal;
+    }
+    p {
+        margin: 0;
     }
     /* 전체 컨테이너 */
     .container {
@@ -31,7 +29,7 @@
         position: relative; /* 상대 위치 지정 */
         width: 100%;
         height: 750px;
-        min-height: 750px;
+        min-height: 450px;
     }
     
     /* 비디오 배경 */
@@ -46,6 +44,7 @@
         object-fit: cover;
         z-index: -1; /* 텍스트보다 뒤로 배치 */
         margin-top: 100px; /* 상단 여백 추가 */
+        object-fit: cover; /*작은 화면에서 비율 유지*/
     }
     
     /* 컨텐츠 스타일 */
@@ -53,87 +52,200 @@
         position: relative;
         color: black;
         text-align: center;
-        font-size: 24px;
-        font-weight: bold;
-        font-family: 'GmarketSansMedium', sans-serif;
+        font-family: "Poppins", serif, ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
         max-width: 80%;
         padding: 10px;
-        top:-260px;
+        top:-240px;
+    }
+    .content > h1{
+        font-size:58px; 
+        font-weight: 500;
     }
     .container2 {
         flex: 1;
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 840px;
+        height: auto;
         padding: 0 12px;
         align-items: center;
         justify-content: center;
+        box-sizing: border-box;
     }
+    
     .inside-container {
         display: flex;
         width: 100%;
-        height: 120px;
+        height: 220px;
         background-color: white;
         padding: 0 12px;
+        box-sizing: border-box;
     }
     .inside-container2 {
         display: flex;
         flex-direction: row;
         width: 100%;
-        height: 608px;
+        height: auto;
         background-color: white;
-        padding: 0 30px;
+        padding: 0 15px;
         justify-content: center;
     }
     .inside-container3 {
         display: flex;
-        width: 565px;;
+        width: 619.4px;
         height: auto;
         background-color: white;
         padding: 0 12px;
         flex-direction: column;
+        box-sizing: border-box;
+    }
+    .inside-container3 > p {
+        text-align: center;
     }
     .inside-container4 {
         display: flex;
-        width: 281.3px;
+        width: 309.1px;
         height: auto;
         background-color: white;
         padding: 0 12px;
         flex-direction: column;
+        box-sizing: border-box;
     }
     .consulting-title {
-        font-size: 51px;
-        line-height: 1.1;
-        font-family: "Poppins", serif;
+        font-size: 55px;
+        line-height: 1.2;
+        font-family: "Poppins", serif, ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
         font-weight: 700;
         font-style: normal;
     }
-    
     .consulting-title2 {
         font-size: 15px;
-        font-family: 'SUIT-Regular', sans-serif;
+        font-family: 'SUIT-Regular', ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
     }
     .blank{
-        width: auto;
+        width: 100%;
         height: 128px;
         padding: 0 12px;
+        display: flex;
+        box-sizing: border-box;
     }
     .blank2{
-        width: auto;
+        width: 100%;
         height: 53px;
         padding: 0 12px;
+        display: flex;
+        box-sizing: border-box;
+    }
+    .blank3{
+        width: 100%;
+        height: 150px;
+        padding: 0 12px;
+        display: flex;
+        box-sizing: border-box;
     }
     .text-border{
+        padding: 0 12px;
+        display: flex;
+        height: 180px;
+        width: auto;    
+    }
+    .text-border-inner {
+        width: 100%;
         padding: 40px 24px;
         display: flex;
-        height: 125px;
-        width: auto;
-        background-color: rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        background-color: rgba(0,0,0, 0.1);;
+        
+        /* 초기 상태 (아래에 위치 + 투명) */
+        transform: translateY(50px);
+        opacity: 0;
+        transition: transform 0.8s ease-out, opacity 0.8s ease-out;
     }
-      @media (max-width: 768px) {
+    
+    /* 화면에 나타날 때 활성화될 클래스 */
+    .text-border-inner.show {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+    .text-border-inner > p > span {
+        font-size: 22px;
+        font-family: "Poppins", serif;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+    .text-border-inner > p {
+        font-size: 15px;
+        line-height: 1.5;
+        font-weight: 500;
+    }
+      @media screen and (max-width: 768px) {
         .consulting-title {
-          font-size: 40px; /* 작은 화면에서는 글자 크기 조정 */
+          font-size: 30px; /* 작은 화면에서는 글자 크기 조정 */
+          text-align: center;
+        }
+        .content{
+            top: -130px;
+        }
+        .container{
+            height: 450px;  
+        }
+        .content > h1{
+            font-size: 30px;
+        }
+        .inside-container{
+            height: 45px;
+        }
+        .inside-container2{
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .inside-container3{
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+        }
+        .inside-container4{
+            width: 100%;
+        }
+        .blank{
+            height: 53px;
+        }
+        .blank2{
+            height: 0px;
+        }
+        .blank3{
+            height: 53px;
+        }
+        .text-border-inner{
+            background-color: white;
+            align-items: center;
+            position: relative;
+        }
+         /* 가로선 스타일 */
+        .text-border-inner::after {
+            content: "";
+            display: block;
+            width: 80%;
+            height: 1px;
+            background-color: #ccc; /* 원하는 색상으로 변경 가능 */
+            position: absolute;
+            bottom: -10px; /* 요소와 가로선 간격 조절 */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* 마지막 요소는 가로선 제거 */
+        .text-border:last-child .text-border-inner::after {
+            display: none;
+        }
+        .video-background {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            min-height: 300px;
+            margin-top: 100px;
         }
       }
 </style>
@@ -141,8 +253,8 @@
 
 {% block content %}
 <div class="container">
-    <video class="video-background" autoplay muted loop playsinline>
-        <source src="{% static 'image/mainmovie.mp4' %}" type="video/mp4">
+    <video class="video-background" autoplay muted loop playsinline aria-hidden="true">
+        <source src="{% static 'image/mainmovie.mp4' %}" type="video/mp4" alt="배경에서 흐르는 아이그로우 컨설팅 서비스 소개 영상">
         브라우저가 지원하지 않는 경우, 동영상을 볼 수 없습니다.
     </video>
     <div class="content">
@@ -153,28 +265,29 @@
     <div class="inside-container"></div>
     <div class="inside-container2">
         <div class="inside-container3">
-            <p><span class="consulting-title">Top of the line<br>consulting services</span></p>
+            <p><span class="consulting-title">Top of the line consulting services</span></p>
+            <p style="font-size:24px; line-height: 1;"><br></p>
             <p><span class="consulting-title2">국내 최고 수준의 컨설턴트의 축적된 노하우로 책임 있는 서비스를 제공합니다</span></p>
         </div>
         <div class="inside-container4">
             <div class="blank"></div>
             <div class="text-border">
-                <div>
+                <div class="text-border-inner" onclick="location.href='{% url 'aboutus:business' %}';" style="cursor: pointer;">
                     <p>
-                        <span class="consulting-title" style="font-size: 22px; line-height: 1.2;">PROJECT</span>
+                        <span>PROJECT</span>
                     </p>
-                    <p><br></p>
+                    <p style="font-size:24px; line-height: 1;"><br></p>
                     <p class="consulting-title2">프로젝트 실적을</p>
                     <p class="consulting-title2">소개합니다.</p>
                 </div>
             </div>
             <div class="blank2"></div>
             <div class="text-border">
-                <div>
+                <div class="text-border-inner" onclick="location.href='/contact/'" style="cursor: pointer;">
                     <p>
-                        <span class="consulting-title" style="font-size: 22px; line-height: 1.2;">CONTACT</span>
+                        <span>CONTACT</span>
                     </p>
-                    <p><br></p>
+                    <p style="font-size:24px; line-height: 1;"><br></p>
                     <p class="consulting-title2">고객 목표에 맞춰</p>
                     <p class="consulting-title2">포괄적이며 유연하게 협력합니다.</p>
                 </div>
@@ -182,22 +295,22 @@
         </div>
         <div class="inside-container4">
             <div class="text-border">
-                <div>
+                <div class="text-border-inner" onclick="location.href='{% url 'aboutus:introduce' %}';" style="cursor: pointer;">
                     <p>
-                        <span class="consulting-title" style="font-size: 22px; line-height: 1.2;">ABOUT US</span>
+                        <span>ABOUT US</span>
                     </p>
-                    <p><br></p>
+                    <p style="font-size:24px; line-height: 1;"><br></p>
                     <p class="consulting-title2">사람으로부터의 가치 발견,</p>
                     <p class="consulting-title2">사회로부터의 가치 연결</p>
                 </div>
             </div>
             <div class="blank2"></div>
             <div class="text-border">
-                <div>
+                <div class="text-border-inner" onclick="location.href='{% url 'recruit:culture' %}';" style="cursor: pointer;">
                     <p>
-                        <span class="consulting-title" style="font-size: 22px; line-height: 1.2;">RECUIT</span>
+                        <span>RECRUIT</span>
                     </p>
-                    <p><br></p>
+                    <p style="font-size:24px; line-height: 1;"><br></p>
                     <p class="consulting-title2">아이그로우와 함께</p>
                     <p class="consulting-title2">미래를 열어갑니다.</p>
                 </div>
@@ -205,6 +318,25 @@
             <div class="blank"></div>
         </div>
     </div>
-    <div class="inside-container"></div>
+    <div class="blank3"></div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const boxes = document.querySelectorAll(".text-border-inner");
+    
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show"); // 보이면 show 클래스 추가
+                } else {
+                    entry.target.classList.remove("show"); // 화면에서 벗어나면 애니메이션 다시 실행 가능하도록 클래스 제거
+                }
+            });
+        }, { threshold: 0.3 }); // 요소가 30% 보일 때 실행
+    
+        boxes.forEach(box => observer.observe(box));
+    });
+    </script>
+    
+    
 {% endblock %}
