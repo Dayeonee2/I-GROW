@@ -92,6 +92,8 @@ button,select {
 
 [type=button],[type=reset],[type=submit],button {
     -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
     background-color: transparent;
     background-image: none
 }
@@ -114,6 +116,8 @@ progress {
 
 [type=search] {
     -webkit-appearance: textfield;
+    -moz-appearance: textfield;  /* Firefox 호환성 */
+    appearance: textfield;       /* 표준 속성 */
     outline-offset: -2px
 }
 
@@ -176,7 +180,7 @@ input::placeholder,textarea::placeholder {
 }
 
 audio,canvas,embed,iframe,img,object,svg,video {
-    display: block;
+    display: inline-block;
     vertical-align: middle
 }
 
@@ -1033,6 +1037,15 @@ img,video {
 
 .pb-0 {
     padding-bottom: 0
+}
+
+.email-text {
+    display: block; /* inline 요소가 아닌 블록 요소로 변경하여 공간 확보 */
+    word-break: break-word; /* 긴 단어(이메일 주소)도 줄 바꿈 허용 */
+    white-space: normal; /* 줄 바꿈 허용 */
+    overflow-wrap: break-word; /* 너무 길면 자동으로 다음 줄로 이동 */
+    max-width: 100%; /* div 크기를 넘어가지 않도록 제한 */
+    text-align: center; /* 이메일이 div 안에서 가운데 정렬되도록 설정 */
 }
 
 .text-left {
