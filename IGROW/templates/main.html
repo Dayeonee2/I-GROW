@@ -21,6 +21,9 @@
         font-weight: normal;
         font-style: normal;
     }
+    p {
+        margin: 0;
+    }
     /* 전체 컨테이너 */
     .container {
         flex: 1;
@@ -53,29 +56,33 @@
         position: relative;
         color: black;
         text-align: center;
-        font-size: 24px;
-        font-weight: bold;
-        font-family: 'GmarketSansMedium', sans-serif;
+        font-family: "Poppins", serif;
         max-width: 80%;
         padding: 10px;
-        top:-260px;
+        top:-240px;
+    }
+    .content > h1{
+        font-size:58px; 
+        font-weight: 500;
     }
     .container2 {
         flex: 1;
         display: flex;
         flex-direction: column;
         width: 100%;
-        height: 840px;
+        height: auto;
         padding: 0 12px;
         align-items: center;
         justify-content: center;
+        box-sizing: border-box;
     }
     .inside-container {
         display: flex;
         width: 100%;
-        height: 120px;
+        height: 200px;
         background-color: white;
         padding: 0 12px;
+        box-sizing: border-box;
     }
     .inside-container2 {
         display: flex;
@@ -83,57 +90,84 @@
         width: 100%;
         height: 608px;
         background-color: white;
-        padding: 0 30px;
+        padding: 0 15px;
         justify-content: center;
     }
     .inside-container3 {
         display: flex;
-        width: 565px;;
+        width: 619.4px;
         height: auto;
         background-color: white;
         padding: 0 12px;
         flex-direction: column;
+        box-sizing: border-box;
     }
     .inside-container4 {
         display: flex;
-        width: 281.3px;
+        width: 309.1px;
         height: auto;
         background-color: white;
         padding: 0 12px;
         flex-direction: column;
+        box-sizing: border-box;
+    }
+    .pd-12{
+        padding; 0 12px;
     }
     .consulting-title {
-        font-size: 51px;
-        line-height: 1.1;
+        font-size: 55px;
+        line-height: 1.2;
         font-family: "Poppins", serif;
         font-weight: 700;
         font-style: normal;
     }
-    
     .consulting-title2 {
         font-size: 15px;
         font-family: 'SUIT-Regular', sans-serif;
     }
     .blank{
-        width: auto;
+        width: 100%;
         height: 128px;
         padding: 0 12px;
+        display: flex;
+        box-sizing: border-box;
     }
     .blank2{
-        width: auto;
+        width: 100%;
         height: 53px;
         padding: 0 12px;
+        display: flex;
+        box-sizing: border-box;
     }
     .text-border{
+        padding: 0 12px;
+        display: flex;
+        height: 180px;
+        width: auto;    
+    }
+    .text-border-inner{
+        width: 100%;
         padding: 40px 24px;
         display: flex;
-        height: 125px;
-        width: auto;
+        flex-direction: column;
         background-color: rgba(0, 0, 0, 0.1);
+    }
+    .text-border-inner > p > span {
+        font-size: 22px;
+        font-family: "Poppins", serif;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+    .text-border-inner > p {
+        font-size: 15px;
+        line-height: 1.5;
     }
       @media (max-width: 768px) {
         .consulting-title {
           font-size: 40px; /* 작은 화면에서는 글자 크기 조정 */
+        }
+        .content > h1{
+            font-size: 45px;
         }
       }
 </style>
@@ -153,28 +187,29 @@
     <div class="inside-container"></div>
     <div class="inside-container2">
         <div class="inside-container3">
-            <p><span class="consulting-title">Top of the line<br>consulting services</span></p>
+            <p><span class="consulting-title">Top of the line consulting services</span></p>
+            <p style="font-size:24px; line-height: 1;"><br></p>
             <p><span class="consulting-title2">국내 최고 수준의 컨설턴트의 축적된 노하우로 책임 있는 서비스를 제공합니다</span></p>
         </div>
         <div class="inside-container4">
             <div class="blank"></div>
             <div class="text-border">
-                <div>
+                <div class="text-border-inner">
                     <p>
-                        <span class="consulting-title" style="font-size: 22px; line-height: 1.2;">PROJECT</span>
+                        <span>PROJECT</span>
                     </p>
-                    <p><br></p>
+                    <p style="font-size:24px; line-height: 1;"><br></p>
                     <p class="consulting-title2">프로젝트 실적을</p>
                     <p class="consulting-title2">소개합니다.</p>
                 </div>
             </div>
             <div class="blank2"></div>
             <div class="text-border">
-                <div>
+                <div class="text-border-inner">
                     <p>
-                        <span class="consulting-title" style="font-size: 22px; line-height: 1.2;">CONTACT</span>
+                        <span>CONTACT</span>
                     </p>
-                    <p><br></p>
+                    <p style="font-size:24px; line-height: 1;"><br></p>
                     <p class="consulting-title2">고객 목표에 맞춰</p>
                     <p class="consulting-title2">포괄적이며 유연하게 협력합니다.</p>
                 </div>
@@ -182,22 +217,22 @@
         </div>
         <div class="inside-container4">
             <div class="text-border">
-                <div>
+                <div class="text-border-inner">
                     <p>
-                        <span class="consulting-title" style="font-size: 22px; line-height: 1.2;">ABOUT US</span>
+                        <span>ABOUT US</span>
                     </p>
-                    <p><br></p>
+                    <p style="font-size:24px; line-height: 1;"><br></p>
                     <p class="consulting-title2">사람으로부터의 가치 발견,</p>
                     <p class="consulting-title2">사회로부터의 가치 연결</p>
                 </div>
             </div>
             <div class="blank2"></div>
             <div class="text-border">
-                <div>
+                <div class="text-border-inner">
                     <p>
-                        <span class="consulting-title" style="font-size: 22px; line-height: 1.2;">RECUIT</span>
+                        <span>RECUIT</span>
                     </p>
-                    <p><br></p>
+                    <p style="font-size:24px; line-height: 1;"><br></p>
                     <p class="consulting-title2">아이그로우와 함께</p>
                     <p class="consulting-title2">미래를 열어갑니다.</p>
                 </div>
@@ -205,6 +240,6 @@
             <div class="blank"></div>
         </div>
     </div>
-    <div class="inside-container"></div>
+    <div class="blank2"></div>
 </div>
 {% endblock %}
