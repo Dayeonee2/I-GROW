@@ -29,11 +29,11 @@
           </ul>
         </li>
         <li class="opt"><a href="https://www.howsolkorea.com/main/index.jsp" aria-expanded="false" target="_blank">교육센터</a></li>
-        <li class="opt"><a href="{% url 'recuit:idealcandidate' %}" aria-expanded="false" onclick="toggleSubmenu(event, this)">인재채용</a>
+        <li class="opt"><a href="{% url 'recruit:culture' %}" aria-expanded="false" onclick="toggleSubmenu(event, this)">인재채용</a>
           <ul>
-            <li class="opt2"><a href="{% url 'recuit:idealcandidate' %}">인재상</a></li>
-            <li class="opt2"><a href="{% url 'recuit:benefits' %}">복리후생</a></li>
-            <li class="opt2"><a href="{% url 'recuit:salary' %}">급여체계</a></li>
+            <li class="opt2"><a href="{% url 'recruit:culture' %}">인재상</a></li>
+            <li class="opt2"><a href="{% url 'recruit:recruit' %}">복리후생</a></li>
+            <li class="opt2"><a href="{% url 'recruit:salary' %}">급여체계</a></li>
           </ul>
         </li>
         <li class="opt"><a href="/contact/" aria-expanded="false" onclick="toggleSubmenu(event, this)">Contact</a>
@@ -97,12 +97,19 @@ function enableHoverOnPC() {
     });
 
     const header = document.querySelector("header");
+    const menu1 = document.querySelector(".menu-1");
+
     header.addEventListener("mouseenter", () => {
       if (window.innerWidth > 1024) { // 🔹 PC 환경에서만 실행
         document.querySelectorAll(".opt > ul").forEach((submenu) => {
           submenu.style.maxHeight = submenu.scrollHeight + "px";
           submenu.style.opacity = "1";
         });
+
+        // 🔹 header hover 효과 적용
+        menu1.style.backgroundColor = "rgba(242, 248, 242, 0.95)";
+        menu1.style.transition = "0.5s";
+        menu1.style.height = "530px";
       }
     });
 
@@ -112,10 +119,19 @@ function enableHoverOnPC() {
           submenu.style.maxHeight = "0";
           submenu.style.opacity = "0";
         });
+
+        // 🔹 header hover 효과 해제
+        menu1.style.backgroundColor = "";
+        menu1.style.height = "";
       }
     });
   }
 }
+
+// 🔹 초기 실행 및 창 크기 변경 시 적용
+window.addEventListener("load", checkScreenSize);
+window.addEventListener("resize", checkScreenSize);
+
 
 // 🔹 모바일에서는 hover가 아닌 클릭으로만 메뉴가 열리도록 처리
 function checkScreenSize() {

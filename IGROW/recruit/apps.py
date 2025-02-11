@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class RecuitConfig(AppConfig):
+class RecruitConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'recuit'
+    name = 'recruit'

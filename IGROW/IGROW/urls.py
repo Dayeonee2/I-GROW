@@ -24,7 +24,7 @@ urlpatterns = [
     path('', views.main),
     path("aboutus/", include('aboutus.urls')),
     path("core/", include('core.urls')),
-    path("recuit/", include('recuit.urls')),
+    path("recruit/", include('recruit.urls')),
     path('contact/', views.contact),
     path("api/send-email/", send_contact_email, name="send_contact_email"),
 ]
