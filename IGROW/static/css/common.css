@@ -8,6 +8,7 @@ body {
     font-family: 'GmarketSansMedium', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
   }
 /* 탬플릿에 적용되는 CSS */
 #content-wrapper {
