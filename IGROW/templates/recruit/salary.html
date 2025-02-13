@@ -5,20 +5,106 @@
 {% load static %}
 
 {% block style %}
-<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+<style>
+
+.py-20 {
+    padding-bottom: 5rem;
+    padding-top: 5rem
+}
+.w-full {
+    width: 100%
+}
+.text-center {
+    text-align: center
+}
+.overflow-hidden {
+    overflow: hidden
+}
+.inline-block {
+    display: inline-block
+}
+.text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem
+}
+.font-extrabold {
+    font-weight: 800
+}
+.keep-all {
+    word-break: keep-all
+}
+.mt-2 {
+    margin-top: .5rem
+}
+.px-2 {
+    padding-left: .5rem;
+    padding-right: .5rem
+}
+.text-gray-500 {
+    --tw-text-opacity: 1;
+    color: rgb(107 114 128/var(--tw-text-opacity))
+}
+.my-4 {
+    margin-bottom: 1rem;
+    margin-top: 1rem
+}
+.h-1 {
+    height: .25rem
+}
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto
+}
+.bg-blue-500 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(59 130 246/var(--tw-bg-opacity))
+}
+.w-64 {
+    width: 16rem
+}
+.bg-opacity-25 {
+    --tw-bg-opacity: 0.25
+}
+.my-0 {
+    margin-bottom: 0;
+    margin-top: 0
+}
+.py-0 {
+    padding-bottom: 0;
+    padding-top: 0
+}
+.rounded-t {
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem
+}
+.mb-10 {
+    margin-bottom: 2.5rem
+}
+audio,canvas,embed,iframe,img,object,svg,video {
+    display: inline-block;
+    vertical-align: middle
+}
+img,video {
+    height: auto;
+    max-width: 100%
+}
+
+
+</style>
 
 {% endblock %}
 
 {% block content %}
-<div class="py-20" id="c">
+
+<div class="py-20">
     <div class="w-full text-center">
         <div>
             <div class="overflow-hidden inline-block">
-                <span class="inline-block text-4xl font-extrabold " style="transform: none;">
-                    <span class="">급여체계</span>
+                <span class="inline-block text-4xl font-extrabold" style="transform: none;">
+                    <span class="">일하는문화</span>
                 </span>
             </div>
-            <div class="font-regular keep-all mt-2 px-2 text-gray-500" style="opacity: 1; transform: translateY(0px) translateZ(0px);">쉽고빠르게잘!</div>
+            <div class="keep-all mt-2 px-2 text-gray-500" style="opacity: 1; transform: translateY(0px) translateZ(0px);">쉽고빠르게잘!</div>
             </div>
             <div class="w-full my-4">
                 <div class="h-1 mx-auto bg-blue-500 w-64 opacity-25 my-0 py-0 rounded-t mb-10"></div>
@@ -30,4 +116,9 @@
     </div>
 </div>
 
+
+{% endblock %}
+
+{% block endscript %}
+<script src="{% static 'js/contact.js' %}"></script>
 {% endblock %}
