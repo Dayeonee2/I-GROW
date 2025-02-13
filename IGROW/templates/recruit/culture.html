@@ -5,55 +5,283 @@
 {% load static %}
 
 {% block style %}
+
 <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+
+<style>
+h1 {
+    /* 1rem = 16px */
+    font-size: 4rem;
+    line-height: 1.2;
+}
+
+.box-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 기본: 2열 */
+    gap: 20px; /* 요소 간 간격 */
+}
+
+.hidden-mb {
+    display: inline;
+}
+    
+    /* 기본 스타일 (화면이 768px 이상일 때) */
+.tit-area {
+    display: flex;
+    justify-content: space-between; /* 좌우 배치 */
+    align-items: center; /* 수직 정렬 */
+    width: 100%;
+    max-width: 1200px; /* 최대 너비 설정 */
+    margin: 0 auto; /* 중앙 정렬 */
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* 개별 요소 스타일 */
+.tit-area, .tit-area p {
+    flex: 1; /* 각 요소가 동일한 너비 차지 */
+}
+
+/* 말풍선 기본 스타일 */
+.speech-bubble-left, .speech-bubble-right {
+    max-width: 80%; /* 기존 45% → 50%로 변경 */
+    padding: 15px 20px;
+    border-radius: 10px;
+    position: relative;
+    font-size: 1.2rem;
+    margin-bottom: 20px; /* 말풍선 간격 추가 */
+}
+
+/* 질문 (왼쪽 말풍선) */
+.speech-bubble-left {
+    background-color: #f1f1f1;
+    color: #333;
+    align-self: flex-start;
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+}
+.speech-bubble-left::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent #f1f1f1 transparent transparent;
+}
+
+/* 답변 (오른쪽 말풍선) */
+.speech-bubble-right {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+}
+.speech-bubble-right::before {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: 20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #007bff;
+}
+
+
+
+
+
+
+
+@media (max-width: 1280px) {
+    h1 {
+        font-size: 40px;
+    }
+}
+/* 768px 이하일 때 위아래 배치 */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 30px;
+    }
+    .hidden-mb {
+        display: none;
+    }
+    .tit-area {
+        flex-direction: column; /* 세로 정렬 */
+    }
+    .tit-area, .tit-area p {
+        width: 100%; /* 전체 너비 사용 */
+    }
+    .box-list {
+        grid-template-columns: 1fr; /* 1열 */
+    }
+    .speech-bubble-left, .speech-bubble-right {
+        max-width: 80%;
+    }
+    .speech-bubble-left::before {
+        left: 20px;
+    }
+    .speech-bubble-right::before {
+        right: 20px;
+    }
+
+}
+
+@media (max-width: 425px) {
+    h1 {
+        /* 1rem = 16px */
+        font-size: 18px;
+        line-height: 1.2;
+    }
+}
+
+</style>
+
 
 {% endblock %}
 
 {% block content %}
-
-<div class="py-20" id="c">
-    <div class="w-full text-center">
-        <div>
-            <div class="overflow-hidden inline-block">
-                <span class="inline-block text-4xl font-extrabold " style="transform: none;">
-                    <span class="">일하는문화</span>
-                </span>
-            </div>
-            <div class="font-regular keep-all mt-2 px-2 text-gray-500" style="opacity: 1; transform: translateY(0px) translateZ(0px);">쉽고빠르게잘!</div>
-            </div>
-            <div class="w-full my-4">
-                <div class="h-1 mx-auto bg-blue-500 w-64 opacity-25 my-0 py-0 rounded-t mb-10"></div>
-            </div>
-            <div>
-                <img src="{% static 'image/급여체계.png' %}" alt="">
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- <div style="width: 100% auto; height: 10px;"></div> -->
-
-<div class="py-20" id="c">
-    <div class="w-full text-center">
-        <div>
-            <div class="overflow-hidden inline-block">
-                <span class="inline-block text-4xl font-extrabold " style="transform: none;">
-                    <span class="">복리후생</span>
-                </span>
-            </div>
-            <div class="font-regular keep-all mt-2 px-2 text-gray-500" style="opacity: 1; transform: translateY(0px) translateZ(0px);">쉽고빠르게잘!</div>
-            </div>
-            <div class="w-full my-4">
-                <div class="h-1 mx-auto bg-blue-500 w-64 opacity-25 my-0 py-0 rounded-t mb-10"></div>
-            </div>
-            <div>
-                <img src="{% static 'image/급여체계.png' %}" alt="">
+<div id="root">
+    <div class="container mx-auto">
+        <div class="py-16 px-10" id="Contact">
+            <div class="w-full px-10" style="border-left: 2px solid black;">
+                <div class="keep-all mt-2 px-2">
+                    <span class="text-blue-500">2025 RECRUIT</span>
+                </div>
+                <div class="overflow-hidden inline-block py-5">
+                    <span class="inline-block text-6xl font-extrabold " style="transform: none;">
+                        <h1 class="" style="font-weight: 300;">I-GROW와 함께할</h1>
+                        <h1 class="">인재를 찾습니다!</h1>
+                    </span>
+                </div>
+                <div class="px-2 text-sm" style="opacity: 1;">
+                    <span>인재채용 > 채용안내</span>
+                </div>
             </div>
         </div>
     </div>
-</div>
-{% endblock %}
 
-{% block endscript %}
-<script src="{% static 'js/contact.js' %}"></script>
+    <div class="container mx-auto py-16 px-10">
+        <div class="" id="Contact">
+            <div class="w-full text-center">
+                <div class="overflow-hidden inline-block">
+                    <span class="inline-block text-4xl font-extrabold" style="transform: none;">
+                        <span class="tit-h2 fc-point2 items-center mb-5">I-GROW는 직원들에게 <br><strong class="fc-point1 text-blue-500">아낌없는 </strong>복지를 제공합니다!</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5" id="Contact">
+            <ul class="box-list div_2">
+                <li class="add-ico-h12 text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="block">
+                        <div class="ico-abs"><img src="/static/image/recruit/recruit_ico_work_1.svg" alt="서류가방과 시계"></div>
+                        <p class="tit-h5 extra">연 1회 해외(국내) 워크숍</p>
+                        <p class="txt-lg">휴식 및 다양한 경험 제공 </p>
+                    </div>
+                </li>
+                <li class="add-ico-h12 text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="block">
+                        <div class="ico-abs"><img src="/static/image/recruit/recruit_ico_work_2.svg" alt="서류와 핸드폰"></div>
+                        <p class="tit-h5 extra">점심 식비 지원</p>
+                        <p class="txt-lg">여러분의 지갑을 지켜드립니다!</p>
+                    </div>
+                </li>
+                <li class="add-ico-h12 text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="block">
+                        <div class="ico-abs"><img src="/static/image/recruit/recruit_ico_work_3.svg" alt="주차된 자동차"></div>
+                        <p class="tit-h5 extra">아낌없는 교육비 지원</p>
+                        <p class="txt-lg">도서, 온라인 교육 등 교육비 지원</p>
+                    </div>
+                </li>
+                <li class="add-ico-h12 text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="block">
+                        <div class="ico-abs"><img src="/static/image/recruit/recruit_ico_work_4.svg" alt="사전과 돈"></div>
+                        <p class="tit-h5 extra">조식 및 간식 무한 제공</p>
+                        <p class="txt-lg">커피, 과자, 프로틴 음료 등 꽉꽉 드려요</p>
+                    </div>
+                </li>
+                <li class="add-ico-h12 text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="block">
+                        <div class="ico-abs"><img src="/static/image/recruit/recruit_ico_work_5.svg" alt="포상매달"></div>
+                        <p class="tit-h5 extra">연말 성과급 지급</p>
+                        <p class="txt-lg">여러분의 노고에 보답할게요!</p>
+                    </div>
+                </li>
+                <li class="add-ico-h12 text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="block">
+                        <div class="ico-abs"><img src="/static/image/recruit/recruit_ico_work_6.svg" alt="사람 실루엣 포상메달"></div>
+                        <p class="tit-h5 extra">REFRESH 휴가가</p>
+                        <p class="txt-lg">프로젝트 종료 후 일주일 휴가 보장</p>
+                    </div>
+                </li>
+                <li class="add-ico-h12 text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="block">
+                        <div class="ico-abs"><img src="/static/image/recruit/recruit_ico_life_1.svg" alt="캘린더와 비행기"></div>
+                        <p class="tit-h5 extra">회식 강요 NO!</p>
+                        <p class="txt-lg">수평적인 문화 및 점심 회식</p>
+                    </div>
+                </li>
+                <li class="add-ico-h12 text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="block">
+                        <div class="ico-abs"><img src="/static/image/recruit/recruit_ico_life_2.svg" alt="아이를 감싸안은 손"></div>
+                        <p class="tit-h5 extra">퇴직금 지급</p>
+                        <p class="txt-lg">주머니는 두둑하게!</p>
+                    </div>
+                </li>
+                <li class="add-ico-h12 text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="block">
+                        <div class="ico-abs"><img src="/static/image/recruit/recruit_ico_life_3.svg" alt="카드"></div>
+                        <p class="tit-h5 extra">야근시 저녁 식대 지원</p>
+                        <p class="txt-lg">식사는 회사에서 책임집니다</p>
+                    </div>
+                </li>
+                <li class="add-ico-h12 text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="block">
+                        <div class="ico-abs"><img src="/static/image/recruit/recruit_ico_life_4.svg" alt="단체활동"></div>
+                        <p class="tit-h5 extra">4대보험 가입</p>
+                        <p class="txt-lg">이건 기본이죠~</p>
+                    </div>
+                </li>
+                <li class="add-ico-h12 text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="block">
+                        <div class="ico-abs"><img src="/static/image/recruit/recruit_ico_life_5.svg" alt="안전검진진"></div>
+                        <p class="tit-h5 extra">명절 성과급 및 포상금</p>
+                        <p class="txt-lg">성과급과 포상금 둘 다 제공</p>
+                    </div>
+                </li>
+                <li class="add-ico-h12 text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="block">
+                        <div class="ico-abs"><img src="/static/image/recruit/recruit_ico_life_6.svg" alt="봉투"></div>
+                        <p class="tit-h5 extra">생일 반차 지원</p>
+                        <p class="txt-lg">소중한 생일엔 사랑하는 사람과 함께</p>
+                    </div>
+                </li>
+                <li class="add-ico-h12 text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="block">
+                        <div class="ico-abs"><img src="/static/image/recruit/recruit_ico_life_7.svg" alt="학사모와 서류"></div>
+                        <p class="tit-h5 extra">커피 및 음료 제공</p>
+                        <p class="txt-lg">회사 근처 카페 음료 제공</p>
+                    </div>
+                </li>
+                <li class="add-ico-h12 text-center bg-white shadow-md border border-gray-100 rounded-lg p-5">
+                    <div class="block">
+                        <div class="ico-abs"><img src="/static/image/recruit/recruit_ico_life_8.svg" alt="리조트"></div>
+                        <p class="tit-h5 extra">자유로운 분위기 조성</p>
+                        <p class="txt-lg">자유로운 연차 사용 및 복장</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container mx-auto">
+        <div class="py-16 px-10" id="Contact">
+            <section class="btn-area ac">
+                <a href="https://m.jobkorea.co.kr/company/44406542/Recruit" target="_blank" rel="noreferrer noopener" class="btn_p add-ico">바로 지금 당장 즉시 지원 커몬~!<i class="ico wh ico-arrow-right"></i></a>
+            </section>
+        </div>
+    </div>
+
+</div>
+
+
 {% endblock %}
