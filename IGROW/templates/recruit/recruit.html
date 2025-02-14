@@ -8,202 +8,51 @@
 
 <link rel="stylesheet" href="{% static 'css/contact.css' %}">
 
-<style>
-h1 {
-    /* 1rem = 16px */
-    font-size: 4rem;
-    line-height: 1.2;
-}
-
-.box-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 기본: 2열 */
-    gap: 20px; /* 요소 간 간격 */
-}
-
-.hidden-mb {
-    display: inline;
-}
-    
-    /* 기본 스타일 (화면이 768px 이상일 때) */
-.tit-area {
-    display: flex;
-    justify-content: space-between; /* 좌우 배치 */
-    align-items: center; /* 수직 정렬 */
-    width: 100%;
-    max-width: 1200px; /* 최대 너비 설정 */
-    margin: 0 auto; /* 중앙 정렬 */
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-/* 개별 요소 스타일 */
-.tit-area, .tit-area p {
-    flex: 1; /* 각 요소가 동일한 너비 차지 */
-}
-
-/* 말풍선 기본 스타일 */
-.speech-bubble-left, .speech-bubble-right {
-    max-width: 80%; /* 기존 45% → 50%로 변경 */
-    padding: 15px 20px;
-    border-radius: 10px;
-    position: relative;
-    font-size: 1.2rem;
-    margin-bottom: 20px; /* 말풍선 간격 추가 */
-}
-
-/* 질문 (왼쪽 말풍선) */
-.speech-bubble-left {
-    background-color: #f1f1f1;
-    color: #333;
-    align-self: flex-start;
-    text-align: left; /* 텍스트 왼쪽 정렬 */
-}
-.speech-bubble-left::before {
-    content: "";
-    position: absolute;
-    left: -10px;
-    top: 20px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent #f1f1f1 transparent transparent;
-}
-
-/* 답변 (오른쪽 말풍선) */
-.speech-bubble-right {
-    background-color: #007bff;
-    color: white;
-    align-self: flex-end;
-    text-align: left; /* 텍스트 왼쪽 정렬 */
-}
-.speech-bubble-right::before {
-    content: "";
-    position: absolute;
-    right: -10px;
-    top: 20px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent transparent transparent #007bff;
-}
-
-
-
-
-
-
-
-@media (max-width: 1280px) {
-    h1 {
-        font-size: 40px;
-    }
-}
-/* 768px 이하일 때 위아래 배치 */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 30px;
-    }
-    .hidden-mb {
-        display: none;
-    }
-    .tit-area {
-        flex-direction: column; /* 세로 정렬 */
-    }
-    .tit-area, .tit-area p {
-        width: 100%; /* 전체 너비 사용 */
-    }
-    .box-list {
-        grid-template-columns: 1fr; /* 1열 */
-    }
-    .speech-bubble-left, .speech-bubble-right {
-        max-width: 80%;
-    }
-    .speech-bubble-left::before {
-        left: 20px;
-    }
-    .speech-bubble-right::before {
-        right: 20px;
-    }
-
-}
-
-@media (max-width: 425px) {
-    h1 {
-        /* 1rem = 16px */
-        font-size: 18px;
-        line-height: 1.2;
-    }
-}
-
-
-
-.container {
-    width: 100%
-}
-
-@media (min-width: 640px) {
-    .container {
-        max-width:640px
-    }
-}
-
-@media (min-width: 768px) {
-    .container {
-        max-width:768px
-    }
-}
-
-@media (min-width: 1024px) {
-    .container {
-        max-width:1024px
-    }
-}
-
-@media (min-width: 1280px) {
-    .container {
-        max-width:1280px
-    }
-}
-
-@media (min-width: 1536px) {
-    .container {
-        max-width:1536px
-    }
-}
-</style>
-
-
 {% endblock %}
 
 {% block content %}
-<div id="root">
-    <div class="container mx-auto">
-        <div class="py-16 px-10" id="Contact">
-            <div class="w-full px-10" style="border-left: 2px solid black;">
+<div id="root">    
+    <div class="container mx-auto pt-16 px-10">
+        <div class="content_pt">
+            <div class="w-full px-10 border_line">
                 <div class="keep-all mt-2 px-2">
                     <span class="text-blue-500">2025 RECRUIT</span>
                 </div>
-                <div class="overflow-hidden inline-block py-5">
-                    <span class="inline-block text-6xl font-extrabold " style="transform: none;">
+                <div class="overflow-hidden inline-block py-5 font-extrabold text-6xl contents_to_center">
+                    <span class="">
                         <h1 class="" style="font-weight: 300;">I-GROW와 함께할</h1>
                         <h1 class="">인재를 찾습니다!</h1>
                     </span>
                 </div>
-                <div class="px-2 text-sm" style="opacity: 1;">
+                <div class="px-2 text-sm contents_to_right" style="opacity: 1;">
                     <span>인재채용 > 채용안내</span>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="container mx-auto">
-        <div class="py-16 px-10" id="Contact">
+    <div class="blank_div"></div>
+    <div class="container mx-auto relative">
+        <div class="px-10">
+            <section class="tit-area">
+                <p class="tit-h1 speech-bubble-left">
+                    I-GROW는 어떤 회사인가요?
+                </p>
+                <p class="txt extra mt-8 speech-bubble-right">
+                    I_GROW는 공공기관 및 대학에 대한 뛰어난 이해와 <br> 
+                    다수의 경험을 기반으로 성공적인 컨설팅을 할 수 있는 <br>
+                    컨설팅 전문 기업입니다!
+                </p>
+            </section>
+        </div>
+    </div>
+    <div class="blank_div"></div>
+    <div class="container mx-auto px-10">
+        <div class="content_pt">
             <div class="w-full text-center">
                 <div>
-                    <div class="overflow-hidden inline-block">
-                        <span class="inline-block text-4xl font-extrabold" style="transform: none;">
-                            <span class="tit-h2 fc-point2 items-center mb-5">I-GROW 와 같이 성장할 <br>
-                                <strong class="fc-point1 text-blue-500">컨설턴트</strong>를 모집합니다!</span>
-                        </span>
+                    <div class="overflow-hidden inline-block text-4xl font-extrabold items-center mb-5">
+                        <span class="" style="transform: none;">I-GROW 와 같이 성장할 <br>
+                            <strong class="fc-point1 text-blue-500">컨설턴트</strong>를 모집합니다!</span>
                     </div>
                 </div>
             </div>
@@ -254,31 +103,13 @@ h1 {
             </div>
         </div>
     </div>
-
-    <div class="container mx-auto relative">
-        <div class="py-16 px-10" id="Contact">
-            <section class="tit-area">
-                <!-- 질문 (말풍선) -->
-                <p class="tit-h1 speech-bubble-left">
-                    I-GROW는 어떤 회사인가요?
-                </p>
-                <!-- 답변 (말풍선) -->
-                <p class="txt extra mt-8 speech-bubble-right">
-                    I_GROW는 공공기관 및 대학에 대한 뛰어난 이해와 <br> 
-                    다수의 경험을 기반으로 성공적인 컨설팅을 할 수 있는 <br>
-                    컨설팅 전문 기업입니다!
-                </p>
-            </section>
-        </div>
-    </div>
-
-    
+    <div class="blank_div"></div>
     <div class="container mx-auto">
-        <div class="py-16 px-10" id="Contact">
+        <div class="px-10">
             <a href="https://m.jobkorea.co.kr/company/44406542/Recruit" target="_blank" rel="noreferrer noopener" class="btn_p add-ico">바로 지금 당장 즉시 지원 커몬~!<i class="ico wh ico-arrow-right"></i></a>
         </div>
     </div>
-
+    <div class="blank_div"></div>
 </div>
 
 

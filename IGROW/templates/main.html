@@ -273,7 +273,7 @@
         <div class="inside-container4">
             <div class="blank"></div>
             <div class="text-border">
-                <div class="text-border-inner" onclick="location.href='{% url 'aboutus:business' %}';" style="cursor: pointer;">
+                <div class="text-border-inner" id="businessRedirect" style="cursor: pointer;">
                     <p>
                         <span>PROJECT</span>
                     </p>
@@ -296,7 +296,7 @@
         </div>
         <div class="inside-container4">
             <div class="text-border">
-                <div class="text-border-inner" onclick="location.href='{% url 'aboutus:introduce' %}';" style="cursor: pointer;">
+                <div class="text-border-inner" id="introduceRedirect" style="cursor: pointer;">
                     <p>
                         <span>ABOUT US</span>
                     </p>
@@ -307,7 +307,7 @@
             </div>
             <div class="blank2"></div>
             <div class="text-border">
-                <div class="text-border-inner" onclick="location.href='{% url 'recruit:culture' %}';" style="cursor: pointer;">
+                <div class="text-border-inner" id="cultureRedirect" style="cursor: pointer;">
                     <p>
                         <span>RECRUIT</span>
                     </p>
@@ -336,8 +336,19 @@
         }, { threshold: 0.3 }); // 요소가 30% 보일 때 실행
     
         boxes.forEach(box => observer.observe(box));
+    
+    // div 누르면 링크 이동(수정_mg)
+    document.getElementById("businessRedirect").addEventListener("click", function () {
+    window.location.href = "{% url 'aboutus:business' %}";
     });
-    </script>
+    document.getElementById("introduceRedirect").addEventListener("click", function () {
+    window.location.href = "{% url 'aboutus:introduce' %}";
+    });
+    document.getElementById("cultureRedirect").addEventListener("click", function () {
+    window.location.href = "{% url 'recruit:culture' %}";
+    });
+});
+</script>
     
     
 {% endblock %}

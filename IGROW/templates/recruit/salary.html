@@ -5,8 +5,9 @@
 {% load static %}
 
 {% block style %}
-<style>
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
 
+<style>
 .py-20 {
     padding-bottom: 5rem;
     padding-top: 5rem
@@ -95,10 +96,9 @@ img,video {
 {% endblock %}
 
 {% block content %}
-
-<div class="py-20">
-    <div class="w-full text-center">
-        <div>
+<div>
+    <div class="py-20">
+        <div class="w-full text-center">
             <div class="overflow-hidden inline-block">
                 <span class="inline-block text-4xl font-extrabold" style="transform: none;">
                     <span class="">일하는문화</span>
@@ -115,6 +115,7 @@ img,video {
         </div>
     </div>
 </div>
+
 
 
 {% endblock %}
