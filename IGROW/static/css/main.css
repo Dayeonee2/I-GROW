@@ -87,9 +87,6 @@ p {
     flex-direction: column;
     box-sizing: border-box;
 }
-.inside-container3 > p {
-    text-align: center;
-}
 .inside-container4 {
     display: flex;
     width: 309.1px;
@@ -187,6 +184,9 @@ p {
     width: 100%;
     align-items: center;
     justify-content: center;
+}
+.inside-container3 > p {
+    text-align: center;
 }
 .inside-container4 {
     width: 100%;
