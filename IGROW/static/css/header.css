@@ -42,6 +42,11 @@ list-style: none;
 margin: 0;
 padding: 0;
 }
+.logo{
+  width:auto; 
+  height:80px; 
+  cursor: pointer;
+}
 .opt {
 display: flex;
 flex-direction: column;
@@ -140,6 +145,9 @@ cursor: pointer;
 .menu-1 {
   flex-direction: column;
   align-items: flex-start;
+}
+.logo{
+  height:65px;
 }
 nav {
   display: none; /* 기본적으로 감추기 */

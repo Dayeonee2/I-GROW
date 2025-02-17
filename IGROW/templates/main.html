@@ -179,76 +179,97 @@
         line-height: 1.5;
         font-weight: 500;
     }
-      @media screen and (max-width: 768px) {
-        .consulting-title {
-          font-size: 30px; /* 작은 화면에서는 글자 크기 조정 */
-          text-align: center;
-        }
-        .content{
-            top: -130px;
-        }
-        .container{
-            height: 450px;
-            min-height: 450px;  
-        }
-        .content > h1{
-            font-size: 30px;
-        }
-        .inside-container{
-            height: 45px;
-        }
-        .inside-container2{
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .inside-container3{
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-        }
-        .inside-container4{
-            width: 100%;
-        }
-        .blank{
-            height: 53px;
-        }
-        .blank2{
-            height: 0px;
-        }
-        .blank3{
-            height: 53px;
-        }
-        .text-border-inner{
-            background-color: white;
-            align-items: center;
-            position: relative;
-        }
-         /* 가로선 스타일 */
-        .text-border-inner::after {
-            content: "";
-            display: block;
-            width: 80%;
-            height: 1px;
-            background-color: #ccc; /* 원하는 색상으로 변경 가능 */
-            position: absolute;
-            bottom: -10px; /* 요소와 가로선 간격 조절 */
-            left: 50%;
-            transform: translateX(-50%);
-        }
+/* 768px 이하 (공통 적용, 모바일 + 태블릿) */
+@media screen and (max-width: 768px) {
+    .consulting-title {
+        text-align: center;
+    }
+    .content {
+        top: -191px;
+    }
+    .inside-container {
+        height: 45px;
+    }
+    .inside-container2 {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .inside-container3 {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .inside-container4 {
+        width: 100%;
+    }
+    .blank {
+        height: 53px;
+    }
+    .blank2 {
+        height: 0px;
+    }
+    .blank3 {
+        height: 53px;
+    }
+    .text-border-inner {
+        background-color: white;
+        align-items: center;
+        position: relative;
+    }
+    /* 가로선 스타일 */
+    .text-border-inner::after {
+        content: "";
+        display: block;
+        width: 80%;
+        height: 1px;
+        background-color: #ccc; /* 원하는 색상으로 변경 가능 */
+        position: absolute;
+        bottom: -10px; /* 요소와 가로선 간격 조절 */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    /* 마지막 요소는 가로선 제거 */
+    .text-border:last-child .text-border-inner::after {
+        display: none;
+    }
+    .video-background {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: 300px;
+        margin-top: 100px;
+    }
+}
 
-        /* 마지막 요소는 가로선 제거 */
-        .text-border:last-child .text-border-inner::after {
-            display: none;
-        }
-        .video-background {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            min-height: 300px;
-            margin-top: 100px;
-        }
-      }
+/* 태블릿 전용 (481px ~ 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .container {
+        height: 600px;
+        min-height: 600px;
+    }
+    .content > h1 {
+        font-size: 30px;
+    }
+}
+
+/* 모바일 전용 (480px 이하) */
+@media screen and (max-width: 480px) {
+    .container {
+        height: 400px;
+        min-height: 400px;
+    }
+    .content {
+        top: -130px;
+    }
+    .content > h1 {
+        font-size: 26px;
+    }
+    .consulting-title {
+        font-size: 27px;
+    }
+}
+
 </style>
 {% endblock %}
 
@@ -301,7 +322,7 @@
                         <span>ABOUT US</span>
                     </p>
                     <p style="font-size:24px; line-height: 1;"><br></p>
-                    <p class="consulting-title2">사람으로부터의 가치 발견,</p>
+                    <p class="consulting-title2">사람으로부터의 가치 발견</p>
                     <p class="consulting-title2">사회로부터의 가치 연결</p>
                 </div>
             </div>
