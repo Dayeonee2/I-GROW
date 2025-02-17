@@ -29,6 +29,7 @@ p {
     font-family: 'SUIT-Regular', ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
     text-align: left;
     font-size: 17px;
+    margin: 10px 0;
 }
 .pclass {
     flex-direction: column;
@@ -43,7 +44,7 @@ p {
     font-size: 13px;
 }
 .p-number {
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
 /* 481px ~ 768px 구간에서 pclass의 왼쪽 마진 제거 */
