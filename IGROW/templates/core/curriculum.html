@@ -3,11 +3,63 @@
 {% block title %}교육과정{% endblock %}
 
 {% load static %}
-
 {% block style %}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .message {
+        font-size: 4vw; /* 화면 크기에 따라 조절 */
+        font-weight: bold;
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1vw; /* 화면 크기에 따라 간격 조절 */
+        min-height: 80vh; /* 높이를 반응형으로 조정 */
+        flex-wrap: wrap; /* 작은 화면에서 자동 줄 바꿈 */
+        text-align: center;
+        padding: 10px;
+    }
+    .hourglass {
+        display: inline-block;
+        font-size: 4vw; /* 이모티콘 크기도 반응형 */
+        animation: rotate 10s linear infinite;
+        will-change: transform;
+    }
+
+    @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* 모바일 화면 대응 (768px 이하) */
+    @media (max-width: 768px) {
+        .message {
+            font-size: 8vw; /* 글씨 더 커지도록 */
+            gap: 0; /* 글자 간격 줄이기 */
+            line-height: 1.2; /* 줄 간격 조절 */
+        }
+        .hourglass {
+            font-size: 8vw; /* 이모티콘 크기도 증가 */
+            margin-top: 10px; /* 모래시계와 글자 사이 여백 */
+        }
+        .dots {
+            display: none; /* 모바일에서는 ... 숨김 처리 */
+        }
+    }
+</style>
 {% endblock %}
 
 {% block content %}
-
-
+<div class="message">
+    <span>준</span>
+    <span>비</span>
+    <span>중</span>
+    <span class="dots">.</span>
+    <span class="dots">.</span>
+    <span class="dots">.</span>
+    <span class="hourglass">⌛</span>
+</div>
 {% endblock %}
