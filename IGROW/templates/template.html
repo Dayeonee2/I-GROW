@@ -10,7 +10,7 @@
       /* 버튼 컨테이너 */
       .floating-buttons {
           position: fixed;
-          bottom: 50px;
+          bottom: 134px;
           right: 50px;
           display: flex;
           flex-direction: column;
@@ -22,8 +22,8 @@
 
       /* 버튼 공통 스타일 */
       .floating-buttons button {
-          width: 55px;
-          height: 55px;
+          width: 60px;
+          height: 60px;
           border-radius: 50%;
           border: none;
           font-size: 14px;
@@ -36,8 +36,13 @@
           transition: background-color 0.3s, transform 0.2s;
       }
       .insta_logo{
-        width: 55px;
-        height: 55px;
+        width: 60px;
+        height: auto;
+        border-radius: 50%;
+      }
+      .blog_logo{
+        width: 66px;
+        height: auto;
         border-radius: 50%;
       }
       /* 인스타 버튼 */
@@ -76,7 +81,25 @@
         opacity: 0.8; /* 살짝 투명하게 */
         transition: opacity 0.3s, transform 0.3s;
     }
-    
+        /* 모바일에서 스타일 변경 */
+    @media (max-width: 1024px) {
+        .floating-buttons {
+            right: 20px; /* 더 오른쪽으로 붙이기 */
+            bottom: 100px; /* 살짝 올리기 */
+            gap: 10px; /* 버튼 간 간격 줄이기 */
+        }
+
+        /* 버튼 크기 축소 */
+        .floating-buttons button {
+            width: 45px;
+            height: 45px;
+        }
+
+        /* 이미지 크기도 줄이기 */
+        .insta_logo, .blog_logo {
+            width: 45px;
+        }
+    }
   </style>
 </head>
 <body>
@@ -90,10 +113,10 @@
     <!-- 오른쪽 하단 버튼 그룹 -->
     <div class="floating-buttons" id="floatingButtons">
       <button class="btn-instagram" onclick="location.href='https://www.instagram.com/howsol_edu/'"><img class="insta_logo" src="{%static 'image/instagram_logo.jpg'%}"></button>
-      <button class="btn-blog" onclick="location.href='https://blog.naver.com/igrowkorea"><img src="{%static 'image/Naverblog_logo.png'%}"></button>
+      <button class="btn-blog" onclick="location.href='https://blog.naver.com/igrowkorea"><img class="blog_logo" src="{%static 'image/Naverblog_logo.png'%}"></button>
       <button class="btn-top" id="topBtn">
         <svg width="35" height="35" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 20 L20 50 L35 50 L35 70 L65 70 L65 50 L80 50 Z" stroke="white" stroke-width="6" fill="white" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M50 20 L20 60 L35 60 L50 40 L65 60 L80 60 Z" stroke="white" stroke-width="6" fill="white" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </button>
        
