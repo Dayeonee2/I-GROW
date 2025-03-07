@@ -6,6 +6,101 @@
     <title>{% block title %}{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    <style>
+      /* 버튼 컨테이너 */
+      .floating-buttons {
+          position: fixed;
+          bottom: 134px;
+          right: 50px;
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          opacity: 0;
+          transform: translateY(50px);
+          transition: opacity 0.3s, transform 0.3s;
+      }
+
+      /* 버튼 공통 스타일 */
+      .floating-buttons button {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          border: none;
+          font-size: 14px;
+          font-weight: bold;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+          transition: background-color 0.3s, transform 0.2s;
+      }
+      .insta_logo{
+        width: 60px;
+        height: auto;
+        border-radius: 50%;
+      }
+      .blog_logo{
+        width: 66px;
+        height: auto;
+        border-radius: 50%;
+      }
+      /* 인스타 버튼 */
+      .btn-instagram {
+          background-color: #E4405F;
+          color: white;
+      }
+      .btn-instagram:hover {
+          background-color: #C13545;
+      }
+
+      /* 블로그 버튼 */
+      .btn-blog {
+          background-color: #00C73C;
+          color: white;
+      }
+      .btn-blog:hover {
+          background-color: #009E30;
+      }
+
+      /* TOP 버튼 */
+      .btn-top {
+          background-color:rgb(53, 140, 233);
+          color: white;
+      }
+      .btn-top:hover {
+          background-color: #0056b3;
+      }
+
+      /* 버튼 나타나는 애니메이션 */
+      .floating-buttons.show {
+          opacity: 1;
+          transform: translateY(0);
+      }
+      .btn-instagram:hover .insta_logo {
+        opacity: 0.8; /* 살짝 투명하게 */
+        transition: opacity 0.3s, transform 0.3s;
+    }
+        /* 모바일에서 스타일 변경 */
+    @media (max-width: 1024px) {
+        .floating-buttons {
+            right: 20px; /* 더 오른쪽으로 붙이기 */
+            bottom: 100px; /* 살짝 올리기 */
+            gap: 10px; /* 버튼 간 간격 줄이기 */
+        }
+
+        /* 버튼 크기 축소 */
+        .floating-buttons button {
+            width: 45px;
+            height: 45px;
+        }
+
+        /* 이미지 크기도 줄이기 */
+        .insta_logo, .blog_logo {
+            width: 45px;
+        }
+    }
+  </style>
 </head>
 <body>
     {% include 'header.html' %}
@@ -15,6 +110,38 @@
       {% block content %}{% endblock %}
       {% block endscript %}{% endblock %}
     </div>
+    <!-- 오른쪽 하단 버튼 그룹 -->
+    <div class="floating-buttons" id="floatingButtons">
+      <button class="btn-instagram" onclick="location.href='https://www.instagram.com/howsol_edu/'"><img class="insta_logo" src="{%static 'image/instagram_logo.jpg'%}"></button>
+      <button class="btn-blog" onclick="location.href='https://blog.naver.com/igrowkorea"><img class="blog_logo" src="{%static 'image/Naverblog_logo.png'%}"></button>
+      <button class="btn-top" id="topBtn">
+        <svg width="35" height="35" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 20 L20 60 L35 60 L50 40 L65 60 L80 60 Z" stroke="white" stroke-width="6" fill="white" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+       
+  </div>
     {% include 'footer.html' %}
+    <script>
+      const floatingButtons = document.getElementById("floatingButtons");
+      const topBtn = document.getElementById("topBtn");
+
+      // 스크롤 이벤트 감지하여 버튼 표시
+      window.addEventListener("scroll", function () {
+          if (window.scrollY > 300) { 
+              floatingButtons.classList.add("show");
+          } else {
+              floatingButtons.classList.remove("show");
+          }
+      });
+
+      // 클릭 시 페이지 맨 위로 이동
+      topBtn.addEventListener("click", function () {
+          window.scrollTo({
+              top: 0,
+              behavior: "smooth"
+          });
+      });
+  </script>
 </body>
 </html>

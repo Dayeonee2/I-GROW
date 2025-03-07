@@ -1,13 +1,121 @@
 {% extends 'template.html' %}
 
-{% block title %}회사소개{% endblock %}
+{% block title %}회사 소개{% endblock %}
 
 {% load static %}
 
 {% block style %}
+<style>
+    @font-face {
+        font-family: 'SUIT-Regular';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+    .content{
+        padding: 0 40px 120px 40px;
+        font-family: 'SUIT-Regular', ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .greeting-container {
+        max-width: 900px;
+        margin: 50px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .greeting-text-container {
+        flex: 1;
+        text-align: left;
+    }
+    .greeting-title {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+    .greeting-text {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.8;
+    }
+    .greeting-signature {
+        margin-top: 20px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #333;
+    }
+    .greeting-img-container {
+        margin-left: 30px;
+    }
+    .greeting-img {
+        width: 350px;
+        height: auto;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .sub-visual{
+        margin-bottom:20px;
+        margin-left: 80px;
+        margin-top: 50px;
+        width: 100%;
+        max-width: 1512px;
+        position: relative;
+        padding-left: 47px;
+        padding-right: auto;
+        font-weight: 500;
+        font-size: 22px;
+        border-left: 5px solid;
+    }
+    .inner > .sub-text{
+        font-weight: bold;
+        color: 
+    }
+    .inner > .main-text{
+        font-size: 64px;
+        margin: 0px;
+        font-weight: bold;
+        color: #161616;
+    }
+</style>
 {% endblock %}
 
 {% block content %}
+<div class="content">
+    <div class="sub-visual">
+        <div class="page-tit">
+            <div class="inner">
+                <p class="sub-text">새로움, 탁월함, 시너지를 통해 <br>고객에게 최고의 가치를 제공합니다.</p>
+                <h2 class="main-text">CEO 인사말</h2>
+            </div>
+        </div>
+    </div>
+    <div class="greeting-container">
+        <div class="greeting-text-container">
+            <h1 class="greeting-title">CEO 인사말</h1>
+            <p class="greeting-text">
+                안녕하세요. ㈜아이그로우입니다.
 
+    우리는 빠르게 변화하는 교육 및 산업 환경 속에서 대학과 기업의 지속 가능한 성장과 혁신을 지원하는 전문 컨설팅 기업입니다.<br><br>
 
+    “성장은 곧 존재의 이유”라는 우리의 철학을 바탕으로, 단순한 지식 전달이 아닌 실질적인 변화와 성과 창출을 목표로 합니다. 중장기 발전 전략 수립, 교육과정 혁신, 역량 기반 평가체계 구축, 직무교육 설계 등 대학과 기업의 경쟁력을 높이는 맞춤형 솔루션을 제공합니다.<br><br>
+
+    우리는 단순한 컨설팅을 넘어, 데이터 기반 분석과 실행력 중심의 전략을 통해 조직이 스스로 성장할 수 있도록 돕는 동반자가 되고자 합니다. 변화와 혁신을 선도하는 기업, 미래 교육과 조직 발전을 이끄는 기업, 그것이 바로 ㈜아이그로우입니다.<br><br>
+
+    앞으로도 고객과 함께 성장하며, 지속적인 혁신을 만들어가는 최고의 파트너가 되겠습니다. 감사합니다.<br><br>
+            </p>
+            <p class="greeting-signature">
+                (주) 아이그로우 대표 신동필
+            </p>
+        </div>
+        <div class="greeting-img-container">
+            <img src="{% static 'image/introduce/인사말.png' %}" alt="CEO 사진" class="greeting-img">
+        </div>
+    </div>
+</div>
 {% endblock %}
