@@ -18,6 +18,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        margin-bottom: 50px;
     }
     .greeting-container {
         max-width: 900px;
@@ -28,8 +29,14 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-between;        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
     }
+    .greeting-container.show {
+        opacity: 1;
+        transform: translateY(0);
+    }    
     .greeting-text-container {
         flex: 1;
         text-align: left;
@@ -60,27 +67,100 @@
         object-fit: cover;
     }
     .sub-visual{
-        margin-bottom:20px;
+        margin-bottom:50px;
         margin-left: 80px;
-        margin-top: 50px;
+        margin-top: 72px;
         width: 100%;
         max-width: 1512px;
         position: relative;
         padding-left: 47px;
         padding-right: auto;
         font-weight: 500;
-        font-size: 22px;
         border-left: 5px solid;
     }
     .inner > .sub-text{
         font-weight: bold;
-        color: 
+        font-size: 20px;
     }
     .inner > .main-text{
-        font-size: 64px;
+        font-size: 70px;
         margin: 0px;
         font-weight: bold;
         color: #161616;
+    }
+    .inner > .sub-text2{
+        font-size: 14px;
+    }
+    /* 반응형 스타일 */
+    @media (max-width: 1024px) {
+        .content {
+            padding: 0 20px 80px;
+        }
+        .greeting-container {
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+        .greeting-img-container {
+            margin-left: 0;
+            margin-top: 20px;
+        }
+        .greeting-img {
+            width: 280px;
+        }
+        .sub-visual {
+            margin-left: 30px;
+            font-size: 20px;
+        }
+        .inner > .main-text {
+            font-size: 48px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .greeting-title {
+            font-size: 1.6rem;
+        }
+        .greeting-text {
+            font-size: 0.9rem;
+        }
+        .greeting-img {
+            width: 250px;
+        }
+        .sub-visual {
+            margin-left: 0px;
+            font-size: 18px;
+            padding-left: 30px;
+        }
+        .inner > .main-text {
+            font-size: 40px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .greeting-title {
+            font-size: 1.4rem;
+        }
+        .greeting-text {
+            font-size: 0.85rem;
+        }
+        .greeting-img {
+            width: 200px;
+        }
+        .sub-visual {
+            margin-left: 0px;
+            font-size: 16px;
+            padding-left: 15px;
+        }
+        .inner > .main-text {
+            font-size: 35px;
+        }
+        .inner > .sub-text{
+            font-size: 15px;
+        }
+        .inner > .sub-text2{
+            font-size: 10px;
+        }
     }
 </style>
 {% endblock %}
@@ -90,8 +170,9 @@
     <div class="sub-visual">
         <div class="page-tit">
             <div class="inner">
-                <p class="sub-text">새로움, 탁월함, 시너지를 통해 <br>고객에게 최고의 가치를 제공합니다.</p>
+                <p class="sub-text">"나"와 "우리"가 함께 동반성장 하겠습니다.</p>
                 <h2 class="main-text">CEO 인사말</h2>
+                <p class="sub-text2">회사소개 > 인사말</p>
             </div>
         </div>
     </div>
@@ -118,4 +199,18 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const container = document.querySelector(".greeting-container");
+        function checkScroll() {
+            const rect = container.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                container.classList.add("show");
+            }
+        }
+        window.addEventListener("scroll", checkScroll);
+        checkScroll();
+    });
+</script>
+
 {% endblock %}
