@@ -1,0 +1,20 @@
+# .env 파일 (API 키 등 보안 정보)
+.env
+
+# Python 캐시 및 가상환경 폴더
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+
+# 데이터베이스 파일 (SQLite 경우)
+*.sqlite3
+
+# IDE 설정 파일 (VS Code, PyCharm 등)
+.vscode/
+.idea/
+
+# Django static & media files (필요하면 추가)
+staticfiles/
+media/

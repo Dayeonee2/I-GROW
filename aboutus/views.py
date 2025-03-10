@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.conf import settings  # settings.py 불러오기
 
 # Create your views here.
 
@@ -15,4 +16,7 @@ def organization(request):
     return render(request, 'aboutus/organization.html')
 
 def direction(request):
-    return render(request, 'aboutus/direction.html')
+    context = {
+        'NAVER_CLIENT_ID': settings.NAVER_CLIENT_ID  # 네이버 지도 API 키 전달
+    }
+    return render(request, 'aboutus/direction.html', context)

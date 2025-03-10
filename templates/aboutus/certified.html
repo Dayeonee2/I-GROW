@@ -6,11 +6,9 @@
 
 {% block style %}
 <style>
-    @font-face {
-        font-family: 'SUIT-Regular';
-        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
-        font-weight: normal;
-        font-style: normal;
+    body {
+        margin: 0;
+        padding: 0;
     }
     .content{
         width : 100%;
@@ -38,6 +36,7 @@
     .inner > .sub-text{
         font-weight: bold;
         font-size: 20px;
+        color: rgb(22, 28, 86);
     }
     .inner > .main-text{
         font-size: 70px;
@@ -48,22 +47,35 @@
     .inner > .sub-text2{
         font-size: 14px;
     }
-    /* 반응형 스타일 */
-    @media (max-width: 1024px) {
+    .message {
+        font-size: 4vw; /* 화면 크기에 따라 조절 */
+        font-weight: bold;
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1vw; /* 화면 크기에 따라 간격 조절 */
+        min-height: 80vh; /* 높이를 반응형으로 조정 */
+        flex-wrap: wrap; /* 작은 화면에서 자동 줄 바꿈 */
+        text-align: center;
+        padding: 10px;
+    }
+    .hourglass {
+        display: inline-block;
+        font-size: 4vw; /* 이모티콘 크기도 반응형 */
+        animation: rotate 10s linear infinite;
+        will-change: transform;
+    }
+
+    @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+     /* 반응형 스타일 */
+     @media (max-width: 1024px) {
         .content {
             padding: 0 20px 80px;
-        }
-        .greeting-container {
-            flex-direction: column;
-            text-align: center;
-            padding: 20px;
-        }
-        .greeting-img-container {
-            margin-left: 0;
-            margin-top: 20px;
-        }
-        .greeting-img {
-            width: 280px;
         }
         .sub-visual {
             margin-left: 30px;
@@ -75,15 +87,6 @@
     }
 
     @media (max-width: 768px) {
-        .greeting-title {
-            font-size: 1.6rem;
-        }
-        .greeting-text {
-            font-size: 0.9rem;
-        }
-        .greeting-img {
-            width: 250px;
-        }
         .sub-visual {
             margin-left: 0px;
             font-size: 18px;
@@ -92,25 +95,29 @@
         .inner > .main-text {
             font-size: 40px;
         }
+        .message {
+            font-size: 8vw; /* 글씨 더 커지도록 */
+            gap: 0; /* 글자 간격 줄이기 */
+            line-height: 1.2; /* 줄 간격 조절 */
+        }
+        .hourglass {
+            font-size: 8vw; /* 이모티콘 크기도 증가 */
+            margin-top: 10px; /* 모래시계와 글자 사이 여백 */
+        }
+        .dots {
+            display: none; /* 모바일에서는 ... 숨김 처리 */
+        }
     }
 
     @media (max-width: 480px) {
         .content{
             margin-bottom: 0px;
         }
-        .greeting-title {
-            font-size: 1.4rem;
-        }
-        .greeting-text {
-            font-size: 0.85rem;
-        }
-        .greeting-img {
-            width: 200px;
-        }
         .sub-visual {
             margin-left: 0px;
             font-size: 16px;
             padding-left: 15px;
+            margin-top: 30px;
         }
         .inner > .main-text {
             font-size: 35px;
@@ -135,6 +142,15 @@
                 <p class="sub-text2">회사소개 > 인증 및 보유시설</p>
             </div>
         </div>
+    </div>
+    <div class="message">
+        <span>준</span>
+        <span>비</span>
+        <span>중</span>
+        <span class="dots">.</span>
+        <span class="dots">.</span>
+        <span class="dots">.</span>
+        <span class="hourglass">⌛</span>
     </div>
 </div>
 

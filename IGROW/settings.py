@@ -13,10 +13,12 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+load_dotenv()
+NAVER_CLIENT_ID = os.getenv("NAVER_CLIENT_ID")  # 네이버 지도 API 키 로드
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -137,11 +139,17 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+# 정적 파일 설정
+STATIC_URL = '/static/'
 
+# STATICFILES_DIRS: 개발 중 사용할 정적 파일 폴더 설정 (템플릿에서 로드되는 정적 파일들)
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'static'),  # 프로젝트 내 static 폴더
 ]
+
+# STATIC_ROOT: collectstatic 실행 시 모든 정적 파일이 모이는 경로 (배포용)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # 배포 시 사용될 정적 파일 폴더
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

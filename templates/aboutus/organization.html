@@ -37,6 +37,7 @@
     .inner > .sub-text{
         font-weight: bold;
         font-size: 20px;
+        color: rgb(22, 28, 86);
     }
     .inner > .main-text{
         font-size: 70px;
@@ -52,11 +53,35 @@
         justify-content: center;
         margin-top: 110px;
     }
+    /* 조직도 애니메이션 */
+    @keyframes slideUp {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* 초기 상태 (스크롤 전 숨김) */
     .org-chart img {
         width: 100%;
         max-width: 1000px;
         height: auto;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
     }
+
+    /* 화면에 나타났을 때 적용될 클래스 */
+    .org-chart img.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+
     /* 반응형 스타일 */
     @media (max-width: 1024px) {
         .content {
@@ -132,5 +157,25 @@
         <img src="{% static 'image/introduce/아이그로우조직도.png' %}" alt="조직도">
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const orgChartImg = document.querySelector(".org-chart img");
+
+        // Intersection Observer 생성
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        orgChartImg.classList.add("show"); // 이미지 표시
+                    }
+                });
+            },
+            { threshold: 0.5 } // 이미지가 50% 이상 보이면 애니메이션 실행
+        );
+
+        // 이미지 요소 감시 시작
+        observer.observe(orgChartImg);
+    });
+</script>
 
 {% endblock %}
