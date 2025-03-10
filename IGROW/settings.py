@@ -26,7 +26,10 @@ SECRET_KEY = 'django-insecure-)_)q+f+3!o0x*xyce83om6%vwh$zo&n$wde%*)a4-zbgp*lbpb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["i-grow.onrender.com"]
+ALLOWED_HOSTS = ["www.igrowkorea.com", "igrowkorea.com", "i-grow.onrender.com", "127.0.0.1"]
+
+SECURE_SSL_REDIRECT = True
+CSRF_TRUSTED_ORIGINS = ["https://www.igrowkorea.com"]
 
 
 # Application definition
@@ -81,7 +84,7 @@ DATABASE_URL = os.getenv("DATABASE_URL")  # 환경 변수에서 DB URL 가져오
 if DATABASE_URL:
     # 🛠️ Render 또는 배포 환경에서는 PostgreSQL 사용
     DATABASES = {
-        'default': dj_database_url.config(default=DATABASE_URL)
+        "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=600)
     }
 else:
     # 🖥️ 로컬 개발 환경에서는 SQLite 사용
