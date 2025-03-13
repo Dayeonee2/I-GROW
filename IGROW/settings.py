@@ -30,8 +30,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["www.igrowkorea.com", "igrowkorea.com", "i-grow.onrender.com", "127.0.0.1"]
 
-SECURE_SSL_REDIRECT = True
-CSRF_TRUSTED_ORIGINS = ["https://www.igrowkorea.com"]
+SECURE_SSL_REDIRECT = False
+# CSRF_TRUSTED_ORIGINS = ["https://www.igrowkorea.com"]
 
 
 # Application definition

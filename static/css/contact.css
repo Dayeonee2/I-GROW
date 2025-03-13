@@ -1,4 +1,29 @@
-
+.sub-visual{
+    margin-bottom:50px;
+    margin-left: 80px;
+    margin-top: 72px;
+    width: 100%;
+    position: relative;
+    padding-left: 47px;
+    padding-right: auto;
+    font-weight: 500;
+    border-left: 5px solid;
+    box-sizing: border-box;
+}
+.inner > .sub-text{
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(22, 28, 86);
+}
+.inner > .main-text{
+    font-size: 70px;
+    margin: 0px;
+    font-weight: bold;
+    color: #161616;
+}
+.inner > .sub-text2{
+    font-size: 14px;
+}
 *,:after,:before {
     border: 0 solid #e5e7eb;
     box-sizing: border-box
@@ -1398,117 +1423,4 @@ h1 {
 
 
 
-/* 초고해상도 모니터 (1537px 이상) */
-@media (min-width: 1537px) {
-    .container {
-        max-width: 1536px; /* 1536px 이상에서는 1536px 고정 */
-    }
-}
 
-/* 고해상도 모니터 (1281px ~ 1535px) */
-@media (max-width: 1536px) {
-    .container {
-        max-width: 1280px; /* 1280px까지 최대 너비 설정 */
-    }
-}
-
-/* 일반적인 데스크톱 (1025px ~ 1279px) */
-@media (max-width: 1280px) {
-    .container {
-        max-width: 1024px; /* 데스크톱에서 최대 1024px 유지 */
-    }
-    
-    .middle-text {
-        font-size: 36px;
-    }
-}
-
-/* 태블릿 (가로 모드) (769px ~ 1024px) */
-@media (max-width: 1024px) {
-    .container {
-        max-width: 768px; /* 태블릿 가로 모드에서 최대 768px 유지 */
-    }
-    h1 {
-        font-size: min(7vw, 60px);
-    }
-    .culture_contents {
-        gap: 10px;
-    }
-    .culture-side-p {
-        max-width: calc(100vw - 80px);
-        padding-left: 0;
-        padding-right: 0;
-        margin-left: 2.5rem;
-        margin-right: 2.5rem;
-    }
-}
-
-/* 태블릿 (세로 모드) & 모바일 (0px ~ 768px) */
-@media (max-width: 768px) {
-    h1 {
-        font-size: min(7vw, 40px);
-    }
-    .middle-text {
-        font-size: min(5.5vw, 36px);    }
-    .container {
-        max-width: 100%; /* 작은 화면에서는 전체 너비 사용 */
-    }
-    .blank_div1 {
-        margin-top: 10rem;
-    }
-    .hidden-mb {
-        display: none;
-    }
-    .tit-area {
-        flex-direction: column; /* 세로 정렬 */
-    }
-    .tit-area, .tit-area p {
-        width: 100%; /* 전체 너비 사용 */
-    }
-    .culture-box-list, .recruit-box-list {
-        grid-template-columns: 1fr; /* 1열 */
-    }
-    .boxlist-list {
-        padding: 1.25rem 2.5rem;
-    }
-    .speech-bubble-left, .speech-bubble-right {
-        max-width: 90%;
-    }
-    .speech-bubble-left::before {
-        display: none;
-        left: 20px;
-    }
-    .speech-bubble-right::before {
-        display: none;
-        right: 20px;
-    }
-    .speech-bubble-right br {
-        display: none; /* 768px 이하에서는 <br> 숨김 */
-    }
-    .border_line {
-        border-left: 0px;
-    }
-    .contents_to_center {
-        font-size: 2.25rem;
-        line-height: 2.5rem;
-        display: flex;
-        justify-content: center;
-    }
-    .contents_to_right {
-        text-align: right;
-    }
-    .grid-cols-1_to_3 {
-        grid-template-columns: repeat(1, minmax(0, 1fr)); /* 한 줄에 하나씩 배치 */
-    }
-    .culture-side-p {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .goRecruit {
-        grid-template-columns: 1fr; /* 세로 배치 */
-        row-gap: 20px; /* 세로 간격 추가 */
-        justify-items: center;
-    }
-}
