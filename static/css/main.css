@@ -165,7 +165,7 @@ p {
     font-weight: 500;
 }
 /* 768px 이하 (공통 적용, 모바일 + 태블릿) */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 876px) {
 .consulting-title {
     text-align: center;
 }
@@ -231,7 +231,7 @@ p {
 }
 
 /* 태블릿 전용 (481px ~ 768px) */
-@media screen and (min-width: 481px) and (max-width: 768px) {
+@media screen and (min-width: 481px) and (max-width: 876px) {
 .container {
     height: 600px;
     min-height: 600px;
