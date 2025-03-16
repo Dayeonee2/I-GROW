@@ -190,35 +190,42 @@
 
         <!-- 회사 정보 -->
         <div class="info-box">
-            <p><strong>주소:</strong> 서울특별시 남부순환로 350길 8, 용연빌딩 3층 아이그로우</p>
+            <p><strong>주소:</strong> {{ address }}</p>
             <p><strong>TEL:</strong> 02-472-5002</p>
-            <p><strong>Email:</strong>dpsheen@igrowkorea.com</p>
+            <p><strong>Email:</strong> dpsheen@igrowkorea.com</p>
         </div>
     </div>
 </div>
 
 <!-- 네이버 지도 API -->
-<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId='0G1R9znBPMti2oaYvv7itK1f5f2RuYir3s1atcm1'"></script>
+<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId={{ NAVER_CLIENT_ID }}"></script>
 
 <script>
-    var mapOptions = {
-        center: new naver.maps.LatLng(37.485314, 126.901123), // 위도, 경도
-        zoom: 15
-    };
+    var latitude = {{ latitude|default:37.485314 }};  // 기본값 설정
+    var longitude = {{ longitude|default:126.901123 }};
 
-    var map = new naver.maps.Map("map", mapOptions);
+    if (!latitude || !longitude) {
+        alert("지도 정보를 불러오지 못했습니다. 관리자에게 문의하세요.");
+    } else {
+        var mapOptions = {
+            center: new naver.maps.LatLng(latitude, longitude), 
+            zoom: 15
+        };
 
-    // 마커 추가
-    var marker = new naver.maps.Marker({
-        position: new naver.maps.LatLng(37.485314, 126.901123),
-        map: map
-    });
+        var map = new naver.maps.Map("map", mapOptions);
 
-    // 인포윈도우 추가
-    var infoWindow = new naver.maps.InfoWindow({
-        content: '<div style="padding:5px;">아이그로우<br>용연빌딩 3층</div>'
-    });
+        // 마커 추가
+        var marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(latitude, longitude),
+            map: map
+        });
 
-    infoWindow.open(map, marker);
+        // 인포윈도우 추가
+        var infoWindow = new naver.maps.InfoWindow({
+            content: '<div style="padding:5px;">아이그로우<br>용연빌딩 3층</div>'
+        });
+
+        infoWindow.open(map, marker);
+    }
 </script>
 {% endblock %}

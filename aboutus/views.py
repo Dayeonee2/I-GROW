@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.conf import settings  # settings.py 불러오기
+import requests
 
 # Create your views here.
 
@@ -16,7 +17,32 @@ def organization(request):
     return render(request, 'aboutus/organization.html')
 
 def direction(request):
-    context = {
-        'NAVER_CLIENT_ID': settings.NAVER_CLIENT_ID  # 네이버 지도 API 키 전달
+    address = "서울특별시 서초구 남부순환로350길 8, 용연빌딩 3층"  # 원하는 주소 설정
+    geocode_url = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode"
+
+    headers = {
+        "X-NCP-APIGW-API-KEY-ID": settings.NAVER_CLIENT_ID,
+        "X-NCP-APIGW-API-KEY": settings.NAVER_CLIENT_SECRET
     }
-    return render(request, 'aboutus/direction.html', context)
+    params = {"query": address}
+
+    response = requests.get(geocode_url, headers=headers, params=params)
+    data = response.json()
+
+    print("네이버 지도 API 응답 데이터:", data)  # 터미널에서 응답 확인
+
+    # 좌표 데이터 추출
+    if "addresses" in data and data["addresses"]:
+        latitude = data["addresses"][0]["y"]  # 위도
+        longitude = data["addresses"][0]["x"]  # 경도
+    else:
+        latitude, longitude = None, None  # 오류 처리
+
+    context = {
+        "NAVER_CLIENT_ID": settings.NAVER_CLIENT_ID,
+        "latitude": latitude,
+        "longitude": longitude,
+        "address": address,
+        "api_response": data  # 프론트에서 확인 가능하도록 전달
+    }
+    return render(request, "aboutus/direction.html", context)

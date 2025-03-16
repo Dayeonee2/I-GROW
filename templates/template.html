@@ -113,7 +113,9 @@
     <!-- 오른쪽 하단 버튼 그룹 -->
     <div class="floating-buttons" id="floatingButtons">
       <button class="btn-instagram" onclick="location.href='https://www.instagram.com/howsol_edu/'"><img class="insta_logo" src="{%static 'image/instagram_logo.jpg'%}"></button>
-      <button class="btn-blog" onclick="location.href='https://blog.naver.com/igrowkorea"><img class="blog_logo" src="{%static 'image/Naverblog_logo.png'%}"></button>
+        <button class="btn-blog" onclick="location.href='https://m.blog.naver.com/igrowkorea?noTrackingCode=true&amp;proxyReferer=&amp;tab=1'">
+            <img class="blog_logo" src="{% static 'image/Naverblog_logo.png' %}">
+        </button>
       <button class="btn-top" id="topBtn">
         <svg width="35" height="35" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <path d="M50 20 L20 60 L35 60 L50 40 L65 60 L80 60 Z" stroke="white" stroke-width="6" fill="white" stroke-linecap="round" stroke-linejoin="round"/>
