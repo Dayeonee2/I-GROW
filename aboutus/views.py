@@ -29,8 +29,6 @@ def direction(request):
     response = requests.get(geocode_url, headers=headers, params=params)
     data = response.json()
 
-    print("네이버 지도 API 응답 데이터:", data)  # 터미널에서 응답 확인
-
     # 좌표 데이터 추출
     if "addresses" in data and data["addresses"]:
         latitude = data["addresses"][0]["y"]  # 위도
