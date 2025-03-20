@@ -65,7 +65,7 @@ height: 100px;
 justify-content: center;
 display: flex;
 align-items: center;
-font-size: 13px;
+font-size: 16px;
 color: black;
 text-decoration: none;
 }
@@ -173,10 +173,11 @@ nav > ul {
   width: 100%;
 }
 .opt > a {
-  padding: 15px 10px;
+  padding: 18px 10px;
   height: auto;
   text-align: center;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 15px;
 }
 .opt > ul {
   position: static;  /* 부모 밑에 배치 */
@@ -204,9 +205,9 @@ nav > ul {
   /* 🔹 모바일에서 서브메뉴 텍스트 스타일 */
 .opt2 > a {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   color: black;
-  padding: 12px;
+  padding: 13px;
   text-decoration: none; /* 밑줄 제거 */
   text-align: center;
   transition: background-color 0.3s ease-in-out; /* 부드러운 효과 */
