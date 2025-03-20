@@ -5,9 +5,11 @@
 {% load static %}
 {% block style %}
 <style>
-    body {
-        margin: 0;
-        padding: 0;
+    @font-face {
+        font-family: 'SUIT-Regular';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
     }
     .content{
         width : 100%;
@@ -46,33 +48,42 @@
     .inner > .sub-text2{
         font-size: 14px;
     }
-    .message {
-        font-size: 4vw; /* 화면 크기에 따라 조절 */
-        font-weight: bold;
-        color: #333;
+    .org-chart {
         display: flex;
-        align-items: center;
         justify-content: center;
-        gap: 1vw; /* 화면 크기에 따라 간격 조절 */
-        min-height: 80vh; /* 높이를 반응형으로 조정 */
-        flex-wrap: wrap; /* 작은 화면에서 자동 줄 바꿈 */
-        text-align: center;
-        padding: 10px;
+        margin-top: 110px;
     }
-    .hourglass {
-        display: inline-block;
-        font-size: 4vw; /* 이모티콘 크기도 반응형 */
-        animation: rotate 10s linear infinite;
-        will-change: transform;
-    }
-
-    @keyframes rotate {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+    /* 조직도 애니메이션 */
+    @keyframes slideUp {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
-     /* 반응형 스타일 */
-     @media (max-width: 1024px) {
+    /* 초기 상태 (스크롤 전 숨김) */
+    .org-chart img {
+        width: 100%;
+        max-width: 1000px;
+        height: auto;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    /* 화면에 나타났을 때 적용될 클래스 */
+    .org-chart img.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+
+    /* 반응형 스타일 */
+    @media (max-width: 1024px) {
         .content {
             padding: 0 20px 80px;
         }
@@ -82,6 +93,9 @@
         }
         .inner > .main-text {
             font-size: 48px;
+        }
+        .org-chart img {
+            max-width: 800px;
         }
     }
 
@@ -94,17 +108,8 @@
         .inner > .main-text {
             font-size: 40px;
         }
-        .message {
-            font-size: 8vw; /* 글씨 더 커지도록 */
-            gap: 0; /* 글자 간격 줄이기 */
-            line-height: 1.2; /* 줄 간격 조절 */
-        }
-        .hourglass {
-            font-size: 8vw; /* 이모티콘 크기도 증가 */
-            margin-top: 10px; /* 모래시계와 글자 사이 여백 */
-        }
-        .dots {
-            display: none; /* 모바일에서는 ... 숨김 처리 */
+        .org-chart img {
+            max-width:600px;
         }
     }
 
@@ -127,6 +132,12 @@
         .inner > .sub-text2{
             font-size: 10px;
         }
+        .org-chart{
+            margin-top: 30px;
+        }
+        .org-chart img {
+            max-width: 400px;
+        }
     }
 </style>
 {% endblock %}
@@ -142,14 +153,29 @@
             </div>
         </div>
     </div>
-    <div class="message">
-        <span>준</span>
-        <span>비</span>
-        <span>중</span>
-        <span class="dots">.</span>
-        <span class="dots">.</span>
-        <span class="dots">.</span>
-        <span class="hourglass">⌛</span>
+    <div class="org-chart">
+        <img src="{% static 'image/core/중장기.png' %}" alt="중장기">
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const orgChartImg = document.querySelector(".org-chart img");
+
+        // Intersection Observer 생성
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        orgChartImg.classList.add("show"); // 이미지 표시
+                    }
+                });
+            },
+            { threshold: 0.5 } // 이미지가 50% 이상 보이면 애니메이션 실행
+        );
+
+        // 이미지 요소 감시 시작
+        observer.observe(orgChartImg);
+    });
+</script>
+
 {% endblock %}
