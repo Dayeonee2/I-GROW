@@ -65,7 +65,7 @@ height: 100px;
 justify-content: center;
 display: flex;
 align-items: center;
-font-size: 17px;
+font-size: 13px;
 color: black;
 text-decoration: none;
 }
@@ -133,6 +133,7 @@ font-size: 25px;
 background: none;
 border: none;
 cursor: pointer;
+top:27px;
 }
 /* PC에서 메뉴 hover 시 서브메뉴 표시 */
 @media screen and (min-width: 1025px) {
@@ -147,7 +148,7 @@ cursor: pointer;
   align-items: flex-start;
 }
 .logo{
-  height:65px;
+  height:60px;
 }
 nav {
   display: none; /* 기본적으로 감추기 */
@@ -172,7 +173,7 @@ nav > ul {
   width: 100%;
 }
 .opt > a {
-  padding: 30px 20px;
+  padding: 15px 10px;
   height: auto;
   text-align: center;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -203,9 +204,9 @@ nav > ul {
   /* 🔹 모바일에서 서브메뉴 텍스트 스타일 */
 .opt2 > a {
   display: block;
-  font-size: 16px;
+  font-size: 12px;
   color: black;
-  padding: 16px 20px;
+  padding: 12px;
   text-decoration: none; /* 밑줄 제거 */
   text-align: center;
   transition: background-color 0.3s ease-in-out; /* 부드러운 효과 */
@@ -232,4 +233,26 @@ header:hover .opt > ul{
   position: absolute;
   right: 20px;
 }
+}
+@media (max-width: 768px) {
+  .logo{
+    height: 55px;
+  }
+}
+@media (max-width: 480px) {
+  header{
+    height:80px;
+  }
+  nav{
+      top:80px;
+  }
+  .menu-1 > .toggle-btn{
+    top: 21px;
+  }
+  .logo{
+    height: 50px;
+  }
+  .menu-1{
+    padding: 0 10px;
+  }
 }

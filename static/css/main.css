@@ -168,6 +168,7 @@ p {
 @media screen and (max-width: 768px) {
 .consulting-title {
     text-align: center;
+    font-size: 40px;
 }
 .content {
     top: -191px;
@@ -237,7 +238,7 @@ p {
     min-height: 600px;
 }
 .content > h1 {
-    font-size: 30px;
+    font-size: 38px;
 }
 }
 
@@ -255,5 +256,8 @@ p {
 }
 .consulting-title {
     font-size: 27px;
+}
+.consulting-title2{
+    font-size: 14px;
 }
 }

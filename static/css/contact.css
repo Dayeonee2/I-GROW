@@ -2,27 +2,13 @@
     margin-bottom:50px;
     margin-left: 80px;
     margin-top: 72px;
-    width: 100%;
+    width: auto;
     position: relative;
     padding-left: 47px;
     padding-right: auto;
     font-weight: 500;
     border-left: 5px solid;
     box-sizing: border-box;
-}
-.inner > .sub-text{
-    font-weight: bold;
-    font-size: 20px;
-    color: rgb(22, 28, 86);
-}
-.inner > .main-text{
-    font-size: 70px;
-    margin: 0px;
-    font-weight: bold;
-    color: #161616;
-}
-.inner > .sub-text2{
-    font-size: 14px;
 }
 *,:after,:before {
     border: 0 solid #e5e7eb;
@@ -209,7 +195,10 @@ img,video {
     margin-left: 2.5rem;
     margin-right: 2.5rem
 }
-
+.mx-80{
+    margin-left:80px;
+    margin-right:auto;
+}
 .my-auto {
     margin-bottom: auto;
     margin-top: auto
@@ -1125,7 +1114,7 @@ h1,h2,h3,h4,h5,h6 {
 
 h1 {
     /* 1rem = 16px */
-    font-size: 4rem;
+    font-size: 60px;
     line-height: 1.2;
 }
 
@@ -1262,14 +1251,12 @@ h1 {
 
 /* 빈 div */
 .blank_div1 {
-    display: block;
     width: 100%;
-    margin-top: 8rem;
+    margin-top: 72px;
 }
 .blank_div2 {
-    display: block;
     width: 100%;
-    margin-top: 14rem;
+    margin-top: 8rem;
 }
 .blank_div3 {
     display: block;
@@ -1386,6 +1373,7 @@ h1 {
 .container {
     width: 100%;
     max-width: 1536px; /* 기본적으로 고해상도 모니터까지 1536px 최대 너비 설정 */
+    padding: 0 40px; /* 좌우 20px 패딩 추가 */
 }
 
 .culture_contents {
@@ -1420,7 +1408,135 @@ h1 {
 }
 
 
+    /* 반응형 스타일 */
+    @media (max-width: 1024px) {
+        .sub-visual {
+            margin-left: 30px;
+            font-size: 20px;
+        }
+    }
 
+    @media (max-width: 768px) {
+        .container{
+            padding: 0 30px;
+        }
+        .sub-visual {
+            margin-left: 0px;
+            font-size: 18px;
+            padding-left: 30px;
+        }
+        h1{
+            font-size:40px;
+        }
+        .culture_contents{
+            padding:0;
+        }
+        .culture-box-list{
+            display:block;
+        }
+        .middle-text{
+            font-size:30px;
+        }
+        .mb-4list{
+            margin-bottom:0px;
+        }
+        .px-15{
+            padding:0px;
+        }
+        .recruit-box-list{
+            display: block;
+        }
+        .tit-area{
+            padding: 20px 20px;
+        }
+        .speech-bubble-left{
+            font-size:18px;
+        }
+        .speech-bubble-right{
+            font-size:18px;
+        }
+        .blank_div2{
+            margin-top: 6rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container{
+            padding: 0 20px;
+        }
+        .sub-visual {
+            margin-left: 0px;
+            font-size: 16px;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        h1{
+            font-size:28px;
+        }
+        .text-blue-500{
+            font-size:14px;
+            padding: 0;
+
+        }
+        span{
+            font-size:12px;
+        }
+        .blank_div2{
+            margin-top:4rem;
+        }
+        .mb-4list{
+            margin-bottom:10px;
+        }
+        .middle-text {
+            font-size: 20px;
+            line-height: 1;
+        }
+        p{
+            font-size:10px;
+        }
+        .list-height{
+            height:120px;
+        }
+        .job-link{
+            font-size:10px;
+            width: auto;
+        }
+        .blank_div3{
+            margin-top:0px;
+        }
+        .goRecruit{
+            margin-top:30px;
+        }
+        .px-15{
+            padding:0px;
+        }
+        .speech-bubble-left{
+            padding: 10px 15px;
+            margin: 0px;
+            font-size:11px;
+        }
+        .speech-bubble-right{
+            padding: 10px 10px;
+        }
+        .tit-area{
+            padding: 20px 20px;
+        }
+        .p-5{
+            padding:1rem;
+        }
+        .recruit-box-list{
+            display: block;
+        }
+        .text-lg{
+            font-size: 12px;
+        }
+        .list-font{
+            font-size:10px;
+        }
+        img{
+            height: 80px;
+        }
+    }
 
 
 
