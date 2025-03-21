@@ -256,4 +256,8 @@ header:hover .opt > ul{
   .menu-1{
     padding: 0 10px;
   }
+  .toggle-btn{
+    right: 10px;
+    top : 30px;
+  }
 }
