@@ -5,9 +5,7 @@
 {% load static %}
 
 {% block style %}
-
 <link rel="stylesheet" href="{% static 'css/contact.css' %}">
-
 {% endblock %}
 
 {% block content %}
@@ -19,15 +17,18 @@
             </div>
             <div class="inline-block py-5 font-extrabold text-6xl contents_to_center">
                 <span>
-                    <h1 class="" style="font-weight: 300;">I-GROW와 함께할</h1>
-                    <h1 class="">인재를 찾습니다!</h1>
+                    <h1 style="font-weight: 300;">I-GROW와 함께할</h1>
+                    <h1>인재를 찾습니다!</h1>
                 </span>
             </div>
             <div class="px-2 text-sm contents_to_right">
                 <span>인재채용 > 채용안내</span>
             </div>
         </div>
+    </div>
+
     <div class="blank_div2"></div>
+
     <div class="container mx-auto relative">
         <div class="px-15 showshow">
             <section class="tit-area flex-col shadow-md">
@@ -36,29 +37,37 @@
                     I-GROW는 어떤 회사인가요?
                 </div>
                 <div class="speech-bubble-right list-font shadow-md">
-                    <p>I-GROW는 공공기관 및 대학에 대한 <span style="color:#007bff; font-weight:bold;">뛰어난 이해</span>와 <span style="color:#007bff; font-weight:bold;">다수의 경험</span>을 기반으로 성공적인 컨설팅을 할 수 있는 컨설팅 전문 기업입니다!</p>
+                    <p>
+                        I-GROW는 공공기관 및 대학에 대한 
+                        <span style="color:#007bff; font-weight:bold;">뛰어난 이해</span>와 
+                        <span style="color:#007bff; font-weight:bold;">다수의 경험</span>을 기반으로
+                        성공적인 컨설팅을 할 수 있는 컨설팅 전문 기업입니다!
+                    </p>
                     <img src="/static/image/로봇.png" alt="🤖" class="bot-icon">
-                </div>                    
+                </div>
             </section>
         </div>
     </div>
+
     <div class="blank_div2"></div>
+
     <div class="container mx-auto px-10">
         <div class="flex flex-col items-center">
             <div class="w-full text-center showshow">
                 <div class="px-10">
                     <div class="inline-block font-extrabold items-center mb-4list middle-text">
-                        <span>I-GROW 와 같이 성장할 <br>
-                            <strong class="fc-point1 text-blue-500">컨설턴트</strong>를 모집합니다!</span>
+                        <span>
+                            I-GROW 와 같이 성장할 <br>
+                            <strong class="fc-point1 text-blue-500">컨설턴트</strong>를 모집합니다!
+                        </span>
                     </div>
                 </div>
             </div>
-    
+
             <div class="w-full rounded-lg mt-5 recruit-box-list">
+                <!-- 주요업무 -->
                 <div class="mb-4 bg-white shadow-md border border-gray-100 rounded-lg p-5 boxlist-list showshow">
-                    <h3 class="text-lg font-bold flex items-center" style="color: #333;">
-                        ✅ 주요업무
-                    </h3>
+                    <h3 class="text-lg font-bold flex items-center" style="color: #333;">✅ 주요업무</h3>
                     <ul class="pt-3 list-font" style="list-style-type: disc; padding-left: 20px; color: #555;">
                         <li>기업 및 대학 컨설팅 관련 자료조사</li>
                         <li>대학 교육과정 개발</li>
@@ -66,20 +75,18 @@
                         <li>정부재정지원사업 전략 수립</li>
                     </ul>
                 </div>
-    
+
+                <!-- 자격요건 -->
                 <div class="mb-4 bg-white shadow-md border border-gray-100 rounded-lg p-5 boxlist-list showshow">
-                    <h3 class="text-lg font-bold flex items-center" style="color: #333;">
-                        ✅ 자격요건
-                    </h3>
+                    <h3 class="text-lg font-bold flex items-center" style="color: #333;">✅ 자격요건</h3>
                     <ul class="pt-3 list-font" style="list-style-type: disc; padding-left: 20px; color: #555;">
                         <li>대졸(4년제) 이상</li>
                     </ul>
                 </div>
-    
+
+                <!-- 우대사항 -->
                 <div class="mb-4 bg-white shadow-md border border-gray-100 rounded-lg p-5 boxlist-list showshow">
-                    <h3 class="text-lg font-bold flex items-center" style="color: #333;">
-                        ✅ 우대사항
-                    </h3>
+                    <h3 class="text-lg font-bold flex items-center" style="color: #333;">✅ 우대사항</h3>
                     <ul class="pt-3 list-font" style="list-style-type: disc; padding-left: 20px; color: #555;">
                         <li>경영 및 교육 전공자</li>
                         <li>문서작업(OA) 우수자</li>
@@ -87,11 +94,10 @@
                         <li>정부 사업 기획 및 수행 경험 보유자</li>
                     </ul>
                 </div>
-    
+
+                <!-- 제출서류 -->
                 <div class="mb-4 bg-white shadow-md border border-gray-100 rounded-lg p-5 boxlist-list showshow">
-                    <h3 class="text-lg font-bold flex items-center" style="color: #333;">
-                        ✅ 제출서류
-                    </h3>
+                    <h3 class="text-lg font-bold flex items-center" style="color: #333;">✅ 제출서류</h3>
                     <ul class="pt-3 list-font" style="list-style-type: disc; padding-left: 20px; color: #555;">
                         <li>이력서</li>
                         <li>자기소개서</li>
@@ -100,15 +106,18 @@
             </div>
         </div>
     </div>
+
     <div class="blank_div3"></div>
+
     <div class="container mx-auto goRecruit items-center px-10 showshow">
-        <a href="https://m.jobkorea.co.kr/company/44406542/Recruit" target="_blank" rel="noreferrer noopener" class="job-link  shadow-md">잡코리아 바로가기</a>
+        <a href="https://m.jobkorea.co.kr/company/44406542/Recruit" target="_blank" rel="noreferrer noopener" class="job-link shadow-md">잡코리아 바로가기</a>
         <a href="https://m.saramin.co.kr/job-search/company-info-view/recruit?csn=RWxhOU9rOENVUTEzQ2lITVd5VC9uZz09&t_ref_content=generic" target="_blank" rel="noreferrer noopener" class="job-link shadow-md">사람인 바로가기</a>
     </div>
+
     <div class="blank_div2"></div>
 </div>
-
 {% endblock %}
+
 {% block endscript %}
 <script src="{% static 'js/contact.js' %}"></script>
 {% endblock %}

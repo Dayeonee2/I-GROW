@@ -5,98 +5,194 @@
 {% load static %}
 
 {% block style %}
-<link rel="stylesheet" href="{% static 'css/contact.css' %}">
-
 <style>
-.py-20 {
-    padding-bottom: 5rem;
-    padding-top: 5rem
-}
-.w-full {
-    width: 100%
-}
-.text-center {
-    text-align: center
-}
-.overflow-hidden {
-    overflow: hidden
-}
-.inline-block {
-    display: inline-block
-}
-.text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem
-}
-.font-extrabold {
-    font-weight: 800
-}
-.keep-all {
-    word-break: keep-all
-}
-.mt-2 {
-    margin-top: .5rem
-}
-.px-2 {
-    padding-left: .5rem;
-    padding-right: .5rem
-}
-.text-gray-500 {
-    --tw-text-opacity: 1;
-    color: rgb(107 114 128/var(--tw-text-opacity))
-}
-.my-4 {
-    margin-bottom: 1rem;
-    margin-top: 1rem
-}
-.h-1 {
-    height: .25rem
-}
-.mx-auto {
-    margin-left: auto;
-    margin-right: auto
-}
-.bg-blue-500 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(59 130 246/var(--tw-bg-opacity))
-}
-.w-64 {
-    width: 16rem
-}
-.bg-opacity-25 {
-    --tw-bg-opacity: 0.25
-}
-.my-0 {
-    margin-bottom: 0;
-    margin-top: 0
-}
-.py-0 {
-    padding-bottom: 0;
-    padding-top: 0
-}
-.rounded-t {
-    border-top-left-radius: .25rem;
-    border-top-right-radius: .25rem
-}
-.mb-10 {
-    margin-bottom: 2.5rem
-}
-audio,canvas,embed,iframe,img,object,svg,video {
-    display: inline-block;
-    vertical-align: middle
-}
-img,video {
-    height: auto;
-    max-width: 100%
-}
+    .content {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 0 40px 120px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    h1 {
+        margin: 0;
+        font-size: 60px;
+        line-height: 1.2;
+    }
+    .container {
+        width: 100%;
+        max-width: 1536px;
+        padding: 0 40px;
+    }
+    .org-chart {
+        display: flex;
+        justify-content: center;
+        margin-top: 110px;
+    }
+    .sub-visual {
+        margin: 72px 0 50px 80px;
+        padding-left: 47px;
+        font-weight: 500;
+        border-left: 5px solid;
+        box-sizing: border-box;
+    }
+    .keep-all { word-break: keep-all }
+    .mt-2 { margin-top: .5rem }
+    .text-blue-500 {
+        --tw-text-opacity: 1;
+        color: rgb(59 130 246 / var(--tw-text-opacity));
+    }
+    .hover\:text-blue-500:hover {
+        --tw-text-opacity: 1;
+        color: rgb(59 130 246 / var(--tw-text-opacity));
+    }
+    .px-2 { padding: 0 .5rem }
+    .inline-block { display: inline-block }
+    .py-5 { padding: 1.25rem 0 }
+    .font-extrabold { font-weight: 800 }
+    .text-6xl {
+        font-size: 3.75rem;
+        line-height: 1;
+    }
+    .text-sm { font-size: 0.875rem }
+    .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .goRecruit {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 40px;
+        padding: 0;
+    }
+    .items-center { align-items: center }
+    .px-10 { padding: 0 2.5rem }
+    .showshow {
+        transform: translateY(50px);
+        opacity: 0;
+        transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+        visibility: hidden;
+    }
+    .showshow.show {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    .job-link {
+        width: 250px;
+        padding: 15px;
+        text-align: center;
+        background-color: #007bff;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 10px;
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+        transition: background-color 0.5s ease;
+    }
+    .job-link:hover {
+        background-color: #0056b3;
+    }
+    .shadow-md, .shadow-sm {
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+                    var(--tw-ring-shadow, 0 0 #0000),
+                    var(--tw-shadow);
+    }
+    .shadow-md {
+        --tw-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1);
+    }
 
-
+    .org-chart img {
+        width: 100%;
+        max-width: 1000px;
+        height: auto;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .org-chart img.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .pay-desc {
+        max-width: 800px;
+        margin: 50px auto 0 auto;
+        text-align: center;
+    }
+    
+    .pay-title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #1f2937;
+    }
+    
+    .pay-text {
+        font-size: 1.125rem;
+        line-height: 1.8;
+        font-weight: 400;
+        color: #4b5563;
+    }
+    @media (max-width: 1024px) {
+        .org-chart img { max-width: 800px; }
+        .sub-visual {
+            margin-left: 30px;
+            font-size: 20px;
+        }
+        .content {
+            padding: 0 20px 80px;
+        }
+    }
+    @media (max-width: 768px) {
+        .org-chart img { max-width: 600px; }
+        .container { padding: 0 30px; }
+        .sub-visual {
+            margin-left: 0;
+            font-size: 18px;
+            padding-left: 30px;
+        }
+        h1 { font-size: 40px; }
+        .pay-title{
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+        }
+        .org-chart { margin-top: 50px; }
+        .container{
+            padding: 0;
+        }
+    }
+    @media (max-width: 480px) {
+        .org-chart { margin-top: 30px; }
+        .org-chart img { max-width: 400px; }
+        .container { padding: 0 20px; }
+        .sub-visual {
+            margin-left: 0;
+            font-size: 16px;
+            padding-left: 15px;
+            margin-top: 30px;
+        }
+        .text-blue-500 {
+            font-size: 14px;
+            padding: 0;
+        }
+        .goRecruit { margin-top: 30px; }
+        .job-link {
+            font-size: 10px;
+            width: auto;
+        }
+        h1 { font-size: 28px; }
+    }
 </style>
-
 {% endblock %}
 
 {% block content %}
-<div id="root">
+<div class="content">
     <div class="container">
         <div class="sub-visual">
             <div class="keep-all mt-2 px-2">
@@ -104,46 +200,50 @@ img,video {
             </div>
             <div class="inline-block py-5 font-extrabold text-6xl contents_to_center">
                 <span>
-                    <h1 class="" style="font-weight: 300;">I-GROW와 함께할</h1>
-                    <h1 class="">인재를 찾습니다!</h1>
+                    <h1 style="font-weight: 300;">I-GROW와 함께할</h1>
+                    <h1>인재를 찾습니다!</h1>
                 </span>
             </div>
-                <div class="px-2 text-sm contents_to_right">
-                    <span>인재채용 > 급여체계</span>
-                </div>
+            <div class="px-2 text-sm contents_to_right">
+                <span>인재채용 > 급여체계</span>
             </div>
         </div>
     </div>
-    <div class="blank_div2"></div>
-    <div class="container">
-        <div class="w-full text-center showshow">
-            <div class="inline-block">
-                <span class="inline-block text-4xl font-extrabold">
-                    <span class="">급여체계</span>
-                </span>
-            </div>
-            <div class="keep-all mt-2 px-2 text-gray-500">쉽고빠르게잘!</div>
-            <div class="w-full my-4">
-                <div class="h-1 mx-auto bg-blue-500 w-64 opacity-25 my-0 py-0 rounded-t mb-10"></div>
-            </div>
-            <div class="">
-                <img src="{% static 'image/급여체계.png' %}" alt="">
-            </div>
-        </div>
-        <div class="blank_div3"></div>
-        <div class="container mx-auto goRecruit items-center px-10 showshow">
-            <a href="https://m.jobkorea.co.kr/company/44406542/Recruit" target="_blank" rel="noreferrer noopener" class="job-link  shadow-md">잡코리아 바로가기</a>
-            <a href="https://m.saramin.co.kr/job-search/company-info-view/recruit?csn=RWxhOU9rOENVUTEzQ2lITVd5VC9uZz09&t_ref_content=generic" target="_blank" rel="noreferrer noopener" class="job-link shadow-md">사람인 바로가기</a>
-        </div>
+    <div class="container mx-auto showshow pay-desc">
+        <h2 class="pay-title">I-GROW의 급여체계는 다릅니다</h2>
+        <p class="pay-text">
+            매년 <strong class="text-blue-500">연봉협상</strong>을 통해 성과를 인정하고,<br>
+            <strong class="text-blue-500">공정한 보상</strong>으로 열정을 아끼지 않는 분들의 노력을 정당하게 평가합니다.
+        </p>
     </div>
-    <div class="blank_div2"></div>
+    <div class="org-chart">
+        <img src="{% static 'image/급여체계.png' %}" alt="급여체계">
+    </div>
 
+    <div class="container mx-auto goRecruit items-center showshow">
+        <a href="https://m.jobkorea.co.kr/company/44406542/Recruit" target="_blank" rel="noreferrer noopener" class="job-link shadow-md">잡코리아 바로가기</a>
+        <a href="https://m.saramin.co.kr/job-search/company-info-view/recruit?csn=RWxhOU9rOENVUTEzQ2lITVd5VC9uZz09&t_ref_content=generic" target="_blank" rel="noreferrer noopener" class="job-link shadow-md">사람인 바로가기</a>
+    </div>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const orgChartImg = document.querySelector(".org-chart img");
+        const boxes = document.querySelectorAll(".showshow");
 
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                } else {
+                    entry.target.classList.remove("show");
+                }
+            });
+        }, { threshold: 0.3 });
 
-{% endblock %}
-
-{% block endscript %}
-<script src="{% static 'js/contact.js' %}"></script>
+        // 이미지와 showshow 요소들 감시 시작
+        if (orgChartImg) observer.observe(orgChartImg);
+        boxes.forEach(box => observer.observe(box));
+    });
+</script>
 {% endblock %}

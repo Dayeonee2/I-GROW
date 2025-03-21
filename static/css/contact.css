@@ -95,7 +95,6 @@ audio,canvas,embed,iframe,img,object,svg,video {
 
 img,video {
     height: auto;
-    max-width: 100%
 }
 
 [hidden] {
