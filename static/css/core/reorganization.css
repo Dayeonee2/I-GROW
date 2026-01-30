@@ -1,0 +1,117 @@
+/* ================================
+   조직개편 페이지 CSS
+   ================================ */
+
+@import url('./common.css');
+
+/* 준비중 메시지 스타일 */
+.message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 100px 0;
+    font-size: 36px;
+    font-weight: bold;
+    color: #161616;
+    letter-spacing: 4px;
+}
+
+.message span {
+    display: inline-block;
+    animation: bounce 1.4s infinite;
+}
+
+.message span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.message span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.message span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.message .dots {
+    font-size: 28px;
+}
+
+.message .dots:nth-of-type(1) {
+    animation-delay: 0.6s;
+}
+
+.message .dots:nth-of-type(2) {
+    animation-delay: 0.8s;
+}
+
+.message .dots:nth-of-type(3) {
+    animation-delay: 1s;
+}
+
+.message .hourglass {
+    font-size: 32px;
+    animation: rotate 2s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 0.7;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ================================
+   반응형 디자인 - 태블릿 (1024px 이하)
+   ================================ */
+@media (max-width: 1024px) {
+    .message {
+        font-size: 32px;
+        margin: 80px 0;
+    }
+}
+
+/* ================================
+   반응형 디자인 - 모바일 (768px 이하)
+   ================================ */
+@media (max-width: 768px) {
+    .message {
+        font-size: 28px;
+        margin: 60px 0;
+    }
+    .message .hourglass {
+        font-size: 28px;
+    }
+}
+
+/* ================================
+   반응형 디자인 - 작은 모바일 (480px 이하)
+   ================================ */
+@media (max-width: 480px) {
+    .message {
+        font-size: 24px;
+        margin: 40px 0;
+        letter-spacing: 2px;
+    }
+    .message .dots {
+        font-size: 20px;
+    }
+    .message .hourglass {
+        font-size: 24px;
+    }
+}

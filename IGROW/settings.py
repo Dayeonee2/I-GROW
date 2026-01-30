@@ -26,15 +26,29 @@ NAVER_CLIENT_SECRET = os.getenv("NAVER_CLIENT_SECRET")
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)_)q+f+3!o0x*xyce83om6%vwh$zo&n$wde%*)a4-zbgp*lbpb'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "dev-insecure-change-me")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DJANGO_DEBUG", "True").lower() in ("1", "true", "yes")
 
-ALLOWED_HOSTS = ["www.igrowkorea.com", "igrowkorea.com", "i-grow.onrender.com", "127.0.0.1"]
+ALLOWED_HOSTS = os.getenv(
+    "DJANGO_ALLOWED_HOSTS",
+    "127.0.0.1,localhost,i-grow.onrender.com,www.igrowkorea.com,igrowkorea.com",
+).split(",")
 
-SECURE_SSL_REDIRECT = False
-# CSRF_TRUSTED_ORIGINS = ["https://www.igrowkorea.com"]
+SECURE_SSL_REDIRECT = not DEBUG
+CSRF_TRUSTED_ORIGINS = os.getenv(
+    "DJANGO_CSRF_TRUSTED_ORIGINS",
+    "https://www.igrowkorea.com,https://igrowkorea.com",
+).split(",")
+
+if not DEBUG:
+    SECURE_HSTS_SECONDS = int(os.getenv("DJANGO_SECURE_HSTS_SECONDS", "31536000"))
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_REFERRER_POLICY = "same-origin"
 
 
 # Application definition
@@ -135,8 +149,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.naver.com'  # 네이버 메일 서버
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'ekdus2561@naver.com'  # 네이버 이메일 주소
-EMAIL_HOST_PASSWORD = 'HFJBJVQUDSUB'  # 앱 비밀번호 사용
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER", "")  # 네이버 이메일 주소
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "")  # 앱 비밀번호 사용
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Static files (CSS, JavaScript, Images)

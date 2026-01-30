@@ -18,3 +18,5 @@ env/
 # Django static & media files (필요하면 추가)
 staticfiles/
 media/
+
+.DS_Store
