@@ -22,15 +22,19 @@
     animation: bounce 1.4s infinite;
 }
 
-.message span:nth-child(1) {
+.message .bounce-char {
+    animation: bounce 1.4s infinite;
+}
+
+.message .bounce-char:nth-child(1) {
     animation-delay: 0s;
 }
 
-.message span:nth-child(2) {
+.message .bounce-char:nth-child(2) {
     animation-delay: 0.2s;
 }
 
-.message span:nth-child(3) {
+.message .bounce-char:nth-child(3) {
     animation-delay: 0.4s;
 }
 
