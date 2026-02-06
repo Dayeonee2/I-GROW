@@ -79,29 +79,66 @@ h1 {
     color: #4b5563;
 }
 
-.keep-all { word-break: keep-all }
-.mt-2 { margin-top: .5rem }
-.px-2 { padding: 0 .5rem }
-.inline-block { display: inline-block }
-.py-5 { padding: 1.25rem 0 }
-.font-extrabold { font-weight: 800 }
-.text-6xl { font-size: 3.75rem; line-height: 1; }
-.text-sm { font-size: 0.875rem }
-.mx-auto { margin-left: auto; margin-right: auto; }
+.keep-all {
+    word-break: keep-all
+}
+
+.mt-2 {
+    margin-top: .5rem
+}
+
+.px-2 {
+    padding: 0 .5rem
+}
+
+.inline-block {
+    display: inline-block
+}
+
+.py-5 {
+    padding: 1.25rem 0
+}
+
+.font-extrabold {
+    font-weight: 800
+}
+
+.text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+}
+
+.text-sm {
+    font-size: 0.875rem
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .text-blue-500 {
     --tw-text-opacity: 1;
     color: rgb(59 130 246 / var(--tw-text-opacity));
+}
+
+.blank_div2 {
+    margin-top: 6rem;
 }
 
 /* ================================
    반응형 디자인 - 태블릿 (1024px 이하)
    ================================ */
 @media (max-width: 1024px) {
-    .org-chart img { max-width: 800px; }
+    .org-chart img {
+        max-width: 800px;
+    }
+
     .sub-visual {
         margin-left: 30px;
         font-size: 20px;
     }
+
     .content {
         padding: 0 20px 80px;
     }
@@ -111,43 +148,81 @@ h1 {
    반응형 디자인 - 모바일 (768px 이하)
    ================================ */
 @media (max-width: 768px) {
-    .org-chart img { max-width: 600px; }
-    .container { padding: 0 30px; }
+    .org-chart img {
+        max-width: 600px;
+    }
+
+    .container {
+        padding: 0 30px;
+    }
+
     .sub-visual {
         margin-left: 0;
         font-size: 18px;
         padding-left: 30px;
     }
-    h1 { font-size: 40px; }
+
+    h1 {
+        font-size: 40px;
+    }
+
     .pay-title {
         font-size: 1.7rem;
         margin-bottom: 15px;
     }
-    .org-chart { margin-top: 50px; }
-    .pay-text { font-size: 1rem; }
-    .container { padding: 0; }
+
+    .org-chart {
+        margin-top: 50px;
+    }
+
+    .pay-text {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 0;
+    }
 }
 
 /* ================================
    반응형 디자인 - 작은 모바일 (480px 이하)
    ================================ */
 @media (max-width: 480px) {
-    .org-chart { margin-top: 30px; }
-    .org-chart img { max-width: 400px; }
-    .container { padding: 0 20px; }
+    .org-chart {
+        margin-top: 30px;
+    }
+
+    .org-chart img {
+        max-width: 400px;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
     .sub-visual {
         margin-left: 0;
         font-size: 16px;
         padding-left: 15px;
         margin-top: 30px;
     }
+
     .text-blue-500 {
         font-size: 14px;
         padding: 0;
     }
-    h1 { font-size: 28px; }
-    .pay-title { font-size: 1.4rem; }
-    .pay-text { font-size: 0.95rem; }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .pay-title {
+        font-size: 1.4rem;
+    }
+
+    .pay-text {
+        font-size: 0.95rem;
+    }
 }
 
 /* ================================
@@ -165,6 +240,7 @@ h1 {
     width: 100%;
     max-width: 100%;
 }
+
 .job-link {
     width: 250px;
     padding: 20px;
@@ -180,6 +256,7 @@ h1 {
     transition: background-color 0.5s ease, transform 0.3s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
 .job-link:hover {
     background-color: #0056b3;
     transform: translateY(-2px);

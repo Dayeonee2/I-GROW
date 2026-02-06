@@ -4,6 +4,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 .content {
     width: 100%;
     max-width: 100%;
@@ -15,6 +16,7 @@
     justify-content: center;
     margin: 0 auto;
 }
+
 .sub-visual {
     margin-bottom: 50px;
     margin-left: 80px;
@@ -25,21 +27,25 @@
     border-left: 5px solid;
     box-sizing: border-box;
 }
-.page-tit{
+
+.page-tit {
     box-sizing: border-box;
 }
-.inner > .sub-text {
+
+.inner>.sub-text {
     font-weight: bold;
     font-size: 20px;
     color: rgb(22, 28, 86);
 }
-.inner > .main-text {
+
+.inner>.main-text {
     font-size: 70px;
     margin: 0px;
     font-weight: bold;
     color: #161616;
 }
-.inner > .sub-text2 {
+
+.inner>.sub-text2 {
     font-size: 14px;
 }
 
@@ -53,14 +59,15 @@
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin: 40px 115px;
-    max-width: 1200px;
+    margin: 40px 125px;
+    max-width: 100%;
 }
 
 #map {
     width: 100%;
-    height: 400px;
-    border-bottom: 2px solid #ddd; /* 구분선 */
+    height: 500px;
+    border-bottom: 2px solid #ddd;
+    /* 구분선 */
     border-radius: 10px;
 }
 
@@ -88,75 +95,92 @@
     .content {
         padding: 0 20px 80px;
     }
+
     .sub-visual {
         margin-left: 30px;
         font-size: 20px;
     }
-    .inner > .main-text {
+
+    .inner>.main-text {
         font-size: 48px;
     }
+
     #map {
         width: 100%;
         height: 350px;
         border-right: none;
         border-bottom: 2px solid #ddd;
     }
+
     .info-box {
         width: 100%;
         text-align: center;
         padding: 20px;
     }
 }
+
 @media (max-width: 768px) {
     .map-container {
-        flex-direction: column; /* 세로 정렬 */
+        flex-direction: column;
+        /* 세로 정렬 */
         margin: 36px 48px;
     }
+
     #map {
         width: 100%;
         height: 300px;
         border-bottom: 2px solid #ddd;
     }
+
     .info-box {
         font-size: 15px;
         padding: 20px;
     }
+
     .sub-visual {
         margin-left: 0px;
         font-size: 18px;
         padding-left: 30px;
     }
-    .inner > .main-text {
+
+    .inner>.main-text {
         font-size: 40px;
     }
 }
-    
+
 @media (max-width: 480px) {
-    .content{
+    .content {
         margin-bottom: 0px;
     }
+
     .sub-visual {
         margin-left: 0px;
         font-size: 16px;
         padding-left: 15px;
         margin-top: 30px;
     }
-    .inner > .main-text {
+
+    .inner>.main-text {
         font-size: 35px;
     }
-    .inner > .sub-text{
+
+    .inner>.sub-text {
         font-size: 15px;
     }
-    .inner > .sub-text2{
+
+    .inner>.sub-text2 {
         font-size: 10px;
     }
+
     #map {
         height: 280px;
     }
+
     .info-box {
         font-size: 14px;
         padding: 15px;
     }
+
     .map-container {
         margin: 36px 10px;
     }
